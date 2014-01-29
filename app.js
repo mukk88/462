@@ -41,7 +41,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 http.createServer(app).listen(8080, function(){
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('Express server listening on port 8080');
 });
 
 https.createServer(options, app).listen(443);
