@@ -8,11 +8,11 @@ var options = {
   cert: fs.readFileSync('cert.pem')
 };
 
+var app = express();
 app.get('/', function(req, res){
   res.send('Hello World');
 });
 
-var app = express();
 
 http.createServer(app).listen(80);
 https.createServer(options, app).listen(443);
