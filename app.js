@@ -8,6 +8,7 @@ app.get('/', function(req, res){
 
 
 var server = http.createServer(app);
-server.listen(3000, function () {
-  console.log('Express server listening on port 3000');
+var port = process.env.PORT ||  3000; 
+server.listen(port, function () {
+  console.log('Express server listening on port ' + port);
 });
