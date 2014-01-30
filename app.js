@@ -84,31 +84,31 @@ app.get('/', function(req, res){
   res.render('index.html');
 });
 
-app.get('/account',  function(req, res){
-  res.render('account.html', { user: req.user });
-});
+// app.get('/account', ensureAuthenticated, function(req, res){
+//   res.render('account.html', { user: req.user });
+// });
 
-app.get('/login', function(req, res){
-  res.render('login.html', { user: req.user });
-});
+// app.get('/login', function(req, res){
+//   res.render('login.html', { user: req.user });
+// });
 
-app.get('/auth/foursquare',
-  passport.authenticate('foursquare'),
-  function(req, res){
-    // The request will be redirected to Foursquare for authentication, so this
-    // function will not be called.
-  });
+// app.get('/auth/foursquare',
+//   passport.authenticate('foursquare'),
+//   function(req, res){
+//     // The request will be redirected to Foursquare for authentication, so this
+//     // function will not be called.
+//   });
 
-app.get('/auth/foursquare/callback', 
-  passport.authenticate('foursquare', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
-  });
+// app.get('/auth/foursquare/callback', 
+//   passport.authenticate('foursquare', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     res.redirect('/');
+//   });
 
-app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
-});
+// app.get('/logout', function(req, res){
+//   req.logout();
+//   res.redirect('/');
+// });
 
 http.createServer(app).listen(8080, function(){
   console.log('Express server listening on port 8080');
