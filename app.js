@@ -68,8 +68,8 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(express.session({ secret: 'keyboard cat' }));
-	app.use(passport.initialize());
-	app.use(passport.session());
+	// app.use(passport.initialize());
+	// app.use(passport.session());
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.engine('html', require('ejs').renderFile);
