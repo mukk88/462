@@ -83,6 +83,7 @@ if ('development' == app.get('env')) {
 app.get('/', function(req, res){
 	// console.log(req._passport);
 	if(token){
+    console.log(token);
     var url = {
       host: 'https://api.foursquare.com',
       path: '/v2/users/self/checkins?oauth_token='+token+'&v=20140130'
