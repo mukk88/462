@@ -10,9 +10,9 @@ var http = require('http');
 var path = require('path');
 var https = require('https');
 var fs = require('fs');
-var passport = require('passport')
-  , util = require('util')
-  , FoursquareStrategy = require('passport-foursquare').Strategy;
+// var passport = require('passport')
+//   , util = require('util')
+//   , FoursquareStrategy = require('passport-foursquare').Strategy;
 
 //ssl
 var options = {
