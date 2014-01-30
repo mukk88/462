@@ -86,10 +86,12 @@ app.get('/', function(req, res){
     console.log(token);
     var url = {
       host: 'https://api.foursquare.com',
-      path: '/v2/users/self/checkins?oauth_token='+token+'&v=20140130'
+      port:443,
+      path: '/v2/users/self/checkins?oauth_token='+token+'&v=20140130',
+      method:'GET'
     };
 
-    http.request(url,function(response){
+    https.request(url,function(response){
       var str = '';
       response.on('data', function (chunk) {
         str += chunk;
