@@ -8,10 +8,13 @@
 </head>
 <body>
 	mark woo
-	<% if (!user) { %>
+	<% if (!checkins) { %>
 		<button id ="fsq">Connect to FourSquare</button>
 	<% } else { %>
-		<p>hi. you have <%= user._raw %> check ins</p>
+		<p>hi. you have <%= checkins %> check ins</p>
+		<script>
+			var checkins = <% checkins %>;
+		</script>
 	<% } %>
 </body>
 </html>

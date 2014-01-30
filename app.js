@@ -81,9 +81,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res){
-	// console.log(req._passport);
+  var data;
 	if(token){
-    console.log(token);
     var url = {
       host: 'api.foursquare.com',
       port:443,
@@ -92,11 +91,8 @@ app.get('/', function(req, res){
     };
 
     var req = https.request(url, function(res) {
-      console.log("statusCode: ", res.statusCode);
-      console.log("headers: ", res.headers);
-
       res.on('data', function(d) {
-        process.stdout.write(d);
+        data = d;
         console.log(d);
       });
     });
@@ -105,19 +101,8 @@ app.get('/', function(req, res){
     req.on('error', function(e) {
       console.error(e);
     });
-
-    // https.request(url,function(response){
-    //   var str = '';
-    //   response.on('data', function (chunk) {
-    //     str += chunk;
-    //   });
-
-    //   response.on('end', function () {
-    //     console.log(str);
-    //   });
-    // }).end();
 	}
-	res.render('index.html', { user:req.user });
+	res.render('index.html', { checkins:data });
 });
 
 app.get('/account', ensureAuthenticated, function(req, res){
