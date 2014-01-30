@@ -81,7 +81,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res){
-  res.render('index.html', { user: req.user });
+  res.render('index.html');
 });
 
 app.get('/account', ensureAuthenticated, function(req, res){
