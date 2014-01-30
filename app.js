@@ -56,7 +56,7 @@ var app = express();
 
 // all environments
 // app.set('port', process.env.PORT || 3000);
-app.configure(function(){
+// app.configure(function(){
 	app.set('views', path.join(__dirname, 'views'));
 	// app.set('view engine', 'jade');
 	app.use(express.favicon());
@@ -73,7 +73,7 @@ app.configure(function(){
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.engine('html', require('ejs').renderFile);
-});
+// });
 
 // development only
 if ('development' == app.get('env')) {
