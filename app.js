@@ -14,6 +14,8 @@ var passport = require('passport')
   , util = require('util')
   , FoursquareStrategy = require('passport-foursquare').Strategy;
 
+var token = null;
+
 //ssl
 var options = {
   key: fs.readFileSync('../key.pem'),
@@ -45,7 +47,7 @@ passport.use(new FoursquareStrategy({
       // to represent the logged-in user.  In a typical application, you would
       // want to associate the Foursquare account with a user record in your
       // database, and return that user instead.
-      console.log(accessToken);
+      token = accessToken;
       return done(null, profile);
     });
   }
@@ -80,6 +82,13 @@ if ('development' == app.get('env')) {
 
 app.get('/', function(req, res){
 	// console.log(req._passport);
+	if(token){
+		var xmlHttp = null;
+	    xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", "https://api.foursquare.com/v2/users/self/checkins?oauth_token=" + token+"&v=20140130", false );
+	    xmlHttp.send( null );
+	    console.log(xmlHttp.responseText);
+	}
 	res.render('index.html', { user:req.user });
 });
 
