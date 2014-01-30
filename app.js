@@ -78,7 +78,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res){
-	console.log(req);
+	console.log(req._passport);
 	res.render('index.html', { user:req.user });
 });
 
