@@ -45,7 +45,7 @@ passport.use(new FoursquareStrategy({
       // to represent the logged-in user.  In a typical application, you would
       // want to associate the Foursquare account with a user record in your
       // database, and return that user instead.
-      console.log(profile);
+      console.log(accessToken);
       return done(null, profile);
     });
   }
