@@ -78,7 +78,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res){
-  res.render('index.html');
+	console.log(req);
+	res.render('index.html', { user:req,user });
 });
 
 app.get('/account', ensureAuthenticated, function(req, res){
@@ -89,12 +90,7 @@ app.get('/login', function(req, res){
   res.render('login.html', { user: req.user });
 });
 
-app.get('/auth/foursquare',
-  passport.authenticate('foursquare'),
-  function(req, res){
-    // The request will be redirected to Foursquare for authentication, so this
-    // function will not be called.
-  });
+app.get('/auth/foursquare',passport.authenticate('foursquare'));
 
 app.get('/auth/foursquare/callback', 
   passport.authenticate('foursquare', { failureRedirect: '/login' }),
