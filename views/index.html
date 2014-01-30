@@ -8,11 +8,10 @@
 </head>
 <body>
 	mark woo
-	<button id ="fsq">Connect to FourSquare</button>
 	<% if (!user) { %>
-		<p>there is no user</p>
+		<button id ="fsq">Connect to FourSquare</button>
 	<% } else { %>
-		<p> there is a user</p>
+		<p>hi. you are user <%= user.id %><%console.log(user)%></p>
 	<% } %>
 </body>
 </html>
