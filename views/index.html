@@ -11,7 +11,7 @@
 	<% if (!user) { %>
 		<button id ="fsq">Connect to FourSquare</button>
 	<% } else { %>
-		<p>hi. you are user <%= user.id %><%console.log(user)%></p>
+		<p>hi. you have <%= user._raw.checkins.length %> check ins</p>
 	<% } %>
 </body>
 </html>
