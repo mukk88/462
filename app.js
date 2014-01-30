@@ -24,31 +24,31 @@ var options = {
 var FOURSQUARE_CLIENT_ID = "ADKJ24OB2LPM0DZ1Y3X1VM53FRNKYLGT4W0PISMZCQNJQ1NG"
 var FOURSQUARE_CLIENT_SECRET = "EIXOFQJHCZ1ALUJQ2TJPUUXFRE1HINHEDNLZS4K3BXM413U5";
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
+// passport.serializeUser(function(user, done) {
+//   done(null, user);
+// });
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
+// passport.deserializeUser(function(obj, done) {
+//   done(null, obj);
+// });
 
-passport.use(new FoursquareStrategy({
-    clientID: FOURSQUARE_CLIENT_ID,
-    clientSecret: FOURSQUARE_CLIENT_SECRET,
-    callbackURL: "https://ec2-54-242-119-246.compute-1.amazonaws.com/auth/foursquare/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    // asynchronous verification, for effect...
-    process.nextTick(function () {
+// passport.use(new FoursquareStrategy({
+//     clientID: FOURSQUARE_CLIENT_ID,
+//     clientSecret: FOURSQUARE_CLIENT_SECRET,
+//     callbackURL: "https://ec2-54-242-119-246.compute-1.amazonaws.com/auth/foursquare/callback"
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//     // asynchronous verification, for effect...
+//     process.nextTick(function () {
       
-      // To keep the example simple, the user's Foursquare profile is returned
-      // to represent the logged-in user.  In a typical application, you would
-      // want to associate the Foursquare account with a user record in your
-      // database, and return that user instead.
-      return done(null, profile);
-    });
-  }
-));
+//       // To keep the example simple, the user's Foursquare profile is returned
+//       // to represent the logged-in user.  In a typical application, you would
+//       // want to associate the Foursquare account with a user record in your
+//       // database, and return that user instead.
+//       return done(null, profile);
+//     });
+//   }
+// ));
 
 
 
