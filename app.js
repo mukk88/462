@@ -45,7 +45,8 @@ passport.use(new FoursquareStrategy({
       // to represent the logged-in user.  In a typical application, you would
       // want to associate the Foursquare account with a user record in your
       // database, and return that user instead.
-      return done(null, user);
+      console.log(profile);
+      return done(null, profile);
     });
   }
 ));
@@ -78,7 +79,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res){
-	console.log(req._passport);
+	// console.log(req._passport);
 	res.render('index.html', { user:req.user });
 });
 
