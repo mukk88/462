@@ -9,6 +9,10 @@
 <body>
 	mark woo
 	<button id ="fsq">Connect to FourSquare</button>
-	<p>ID: hi</p>
+	<% if (!user) { %>
+		<p> there is a user</p>
+	<% } else { %>
+		<p>there is no user</p>
+	<% } %>
 </body>
 </html>
