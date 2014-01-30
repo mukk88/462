@@ -85,7 +85,7 @@ app.get('/', function(req, res){
 	if(token){
     console.log(token);
     var url = {
-      host: 'https://api.foursquare.com',
+      host: 'api.foursquare.com',
       port:443,
       path: '/v2/users/self/checkins?oauth_token='+token+'&v=20140130',
       method:'GET'
