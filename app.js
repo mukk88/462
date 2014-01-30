@@ -116,7 +116,7 @@ http.createServer(app).listen(8080, function(){
 
 https.createServer(options, app).listen(443);
 
-// function ensureAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) { return next(); }
-//   res.redirect('/login')
-// }
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
