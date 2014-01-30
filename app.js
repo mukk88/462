@@ -91,16 +91,31 @@ app.get('/', function(req, res){
       method:'GET'
     };
 
-    https.request(url,function(response){
-      var str = '';
-      response.on('data', function (chunk) {
-        str += chunk;
-      });
+    var req = https.request(url, function(res) {
+      console.log("statusCode: ", res.statusCode);
+      console.log("headers: ", res.headers);
 
-      response.on('end', function () {
-        console.log(str);
+      res.on('data', function(d) {
+        process.stdout.write(d);
+        console.log(d);
       });
-    }).end();
+    });
+    req.end();
+
+    req.on('error', function(e) {
+      console.error(e);
+    });
+
+    // https.request(url,function(response){
+    //   var str = '';
+    //   response.on('data', function (chunk) {
+    //     str += chunk;
+    //   });
+
+    //   response.on('end', function () {
+    //     console.log(str);
+    //   });
+    // }).end();
 	}
 	res.render('index.html', { user:req.user });
 });
