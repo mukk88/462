@@ -1,8 +1,27 @@
 <html>
 <head>
-	<title></title>
+	<title>checkinfo</title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var data = <%-JSON.stringify(info)%>;
+		function createCheckin(checkin){
+            var container = $('<div>').addClass('container').addClass('checkin');
+            container.append($('<h2>').text(checkin.venue.name));
+            var date = new Date();
+            date.setTime(checkin.createdAt*1000);
+            var checkedInAt = date.toDateString() + ' at ' + date.toLocaleTimeString();
+            container.append($('<p>Located at: '+(checkin.venue.location.address || '')+', ' + (checkin.venue.location.city || '') +' ' + (checkin.venue.location.state || '') + ', ' + (checkin.venue.location.postalCode || '') + '</p>'));
+            container.append($('<p>Checked in: '+checkedInAt+'</p>'));
+            return container;
+        }
+        var checkinContainer = $('#checkins');
+        data.response.checkins.items.forEach(function(checkin){$(checkinContainer).append(createCheckin(checkin));})
+    });
+</script>
 <body>
-	<p>hi</p>
+	<p id ="checkins">
+	</p>
 </body>
 </html>

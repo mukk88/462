@@ -7,14 +7,28 @@
 
 </head>
 <body>
-	mark woo
-	<% if (!checkins) { %>
-		<button id ="fsq">Connect to FourSquare</button>
-	<% } else { %>
-		<p>hi. you have <%= checkins.response.checkins.count %> check ins</p>
-		<script>
-			var w = '' + <%= checkins %>;
-		</script>
+	<% if(!loginid) {%>
+		<button id = "create">create</button>
+		or
+		<form name = "input" action = "/" method = "post">
+			<input name ="username" type="text" >
+			<input type="submit" value ="log in">
+		</form>
+		<br>
+	<% }else{%>
+		<h1>Username: <%= loginid %></h1>
+		<br>
+		<button id = "logout">log out</button>
+		<% if (!token) { %>
+			<button id ="fsq">Connect to FourSquare</button>
+		<% } else { %>
+			<p>you are connected to foursquare</p>
+		<% } %>
+	<% } %>
+	<br>
+	<h1>All users</h1>
+	<% for(var id in people){ %>
+		<p> <%- link_to(people[id].username, 'user/' + id) %></p>
 	<% } %>
 </body>
 </html>
