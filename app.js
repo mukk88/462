@@ -93,7 +93,7 @@ app.get('/', function(req, res){
     var req = https.request(url, function(res) {
       res.on('data', function(d) {
         data += d
-        console.log(data);
+        // console.log(data);
       });
     });
     req.end();
@@ -102,6 +102,7 @@ app.get('/', function(req, res){
       console.error(e);
     });
 	}
+  console.log(data);
 	res.render('index.html', { checkins:'data' });
 });
 
