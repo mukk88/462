@@ -94,7 +94,7 @@ app.get('/', function(req, res){
       response.on('data', function(d) {
         checkin += d
         var checkintext = JSON.stringify(checkin);
-        res.render('index.html', { checkins:checkintext });
+        res.render('index.html', { checkins:checkin });
       });
     });
     request.end();
