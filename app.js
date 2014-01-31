@@ -81,7 +81,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res){
-  var data;
+  var data = '';
 	if(token){
     var url = {
       host: 'api.foursquare.com',
@@ -92,8 +92,8 @@ app.get('/', function(req, res){
 
     var req = https.request(url, function(res) {
       res.on('data', function(d) {
-        data = d;
-        console.log(d);
+        data += d
+        console.log(data);
       });
     });
     req.end();
