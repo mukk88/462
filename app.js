@@ -148,7 +148,6 @@ app.get('/user/:userid', function(req,res){
       response.on('data', function(d) {
         checkin += d
         var checkintext = JSON.parse(checkin);
-        // res.send(JSON.stringify(checkintext));        
         res.render('account.html', {info:checkintext});
       });
     });
@@ -189,7 +188,7 @@ http.createServer(app).listen(8080, function(){
   console.log('Express server listening on port 8080');
 });
 
-https.createServer(options, app).listen(8081);
+https.createServer(options, app).listen(443);
 
 
 
