@@ -90,15 +90,15 @@ app.get('/', function(req, res){
       method:'GET'
     };
 
-    var req = https.request(url, function(res) {
-      res.on('data', function(d) {
+    var reqest = https.request(url, function(response) {
+      response.on('data', function(d) {
         checkin += d
         // console.log(data);
       });
     });
-    req.end();
+    request.end();
 
-    req.on('error', function(e) {
+    request.on('error', function(e) {
       console.error(e);
     });
 	}
