@@ -82,6 +82,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', function(req, res){
   var checkin = '';
+  var test = '';
 	if(token){
     var url = {
       host: 'api.foursquare.com',
@@ -93,8 +94,9 @@ app.get('/', function(req, res){
     var request = https.request(url, function(response) {
       response.on('data', function(d) {
         checkin += d
-        // console.log(data);
+        console.log(checkin);
       });
+      test = checkin;
     });
     request.end();
 
@@ -102,7 +104,7 @@ app.get('/', function(req, res){
       console.error(e);
     });
 	}
-  console.log(checkin);
+  console.log("AFSDGHSDFHDHJDFJ" + test);
 	res.render('index.html', { checkins:'data' });
 });
 
