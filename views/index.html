@@ -11,7 +11,7 @@
 	<% if (!checkins) { %>
 		<button id ="fsq">Connect to FourSquare</button>
 	<% } else { %>
-		<p>hi. you have <%= checkins %> check ins</p>
+		<p>hi. you have <%= checkins.response.checkins.count %> check ins</p>
 		<script>
 			var w = '' + <%= checkins %>;
 		</script>
