@@ -102,7 +102,7 @@ app.get('/', function(req, res){
       console.error(e);
     });
 	}
-	res.render('index.html', { checkins:data });
+	res.render('index.html', { checkins:'data' });
 });
 
 app.get('/account', ensureAuthenticated, function(req, res){
