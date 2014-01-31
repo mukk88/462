@@ -90,7 +90,7 @@ app.get('/', function(req, res){
       method:'GET'
     };
 
-    var reqest = https.request(url, function(response) {
+    var request = https.request(url, function(response) {
       response.on('data', function(d) {
         checkin += d
         // console.log(data);
