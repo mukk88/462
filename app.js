@@ -93,7 +93,8 @@ app.get('/', function(req, res){
     var request = https.request(url, function(response) {
       response.on('data', function(d) {
         checkin += d
-        res.render('index.html', { checkins:checkin });
+        var checkintext = JSON.stringify(checkin);
+        res.render('index.html', { checkins:checkintext });
       });
     });
     request.end();
