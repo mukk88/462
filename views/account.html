@@ -2,9 +2,11 @@
 <head>
 	<title>checkinfo</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
+        <% if (info) {%>
 		var data = <%-JSON.stringify(info)%>;
 		function createCheckin(checkin){
             var container = $('<div>').addClass('container').addClass('checkin');
@@ -18,10 +20,15 @@
         }
         var checkinContainer = $('#checkins');
         data.response.checkins.items.forEach(function(checkin){$(checkinContainer).append(createCheckin(checkin));})
+        <% } else { %>
+            $('#checkins').html("not checked into foursquare. yet.");
+        <% }%>
     });
 </script>
 <body>
-	<p id ="checkins">
-	</p>
+    <div class="contain">
+    	<p id ="checkins">
+    	</p>
+    </div>
 </body>
 </html>

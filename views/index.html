@@ -1,34 +1,42 @@
 <html>
 <head>
 	<title>my page</title>
+	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="js/index.js"></script>
 
 </head>
 <body>
-	<% if(!loginid) {%>
-		<button id = "create">create</button>
-		or
-		<form name = "input" action = "/" method = "post">
-			<input name ="username" type="text" >
-			<input type="submit" value ="log in">
-		</form>
-		<br>
-	<% }else{%>
-		<h1>Username: <%= loginid %></h1>
-		<br>
-		<button id = "logout">log out</button>
-		<% if (!token) { %>
-			<button id ="fsq">Connect to FourSquare</button>
-		<% } else { %>
-			<p>you are connected to foursquare</p>
+	<div class = "contain">
+		<% if(!loginid) {%>
+			<form name = "form1" action = "/create" method = "post">
+				<input name="username" type="text" style="display:none">
+				<input type="submit" value="join">
+			</form>
+			<span style="float:right;margin-right:10px;margin-top:-9px;">or</span>
+			<form name = "input" action = "/" method = "post">
+				<input class = "login"  type="submit" value ="log in">
+				<input class = "login" onblur="document.form1.username.value = this.value;" name ="username" type="text" placeholder="Username">
+			</form>
+			<br>
+		<% }else{%>
+			<span style="font-size:20px;line-height:30px;"><%= loginid %></span>
+			<br>
+			<button id = "logout">log out</button>
+			<% if (!token) { %>
+				<button id ="fsq">Connect to FourSquare</button>
+			<% } else { %>
+				<span style= "margin-top:-21px;margin-right:10px;float:right">Connected to fourSquare</span>
+			<% } %>
 		<% } %>
-	<% } %>
-	<br>
-	<h1>All users</h1>
-	<% for(var id in people){ %>
-		<p> <%- link_to(people[id].username, 'user/' + id) %></p>
-	<% } %>
+		<br>
+		<div id="users">
+			<h1>All users</h1>
+			<% for(var id in people){ %>
+				<p style="font-size:30px;"> <%- link_to(people[id].username, 'user/' + id) %></p>
+			<% } %>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,0 +1,48 @@
+body{
+	padding:50px;
+	background: url(../images/cream_pixels.png);
+	font-family: 'Quicksand'
+}
+
+.contain{
+	background-color: white;
+	padding: 20px;
+	width:100%;
+	max-width:660px;
+	margin:0 auto;
+	border: 1px solid;
+	min-height:70%;
+	overflow: auto;
+	-moz-box-shadow:    3px 3px 5px 6px #ccc;
+	-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+	box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+#users{
+	text-align: center;
+}
+
+input[type="submit"]{
+	float:right;
+	width:70px;
+	padding: 5px;
+	margin-right: 10px;
+}
+
+input[type="text"]{
+	padding: 5px;
+	float:right;
+	margin-right: 10px;
+}
+
+.login{
+	margin-top:-14px;
+}
+
+button{
+	float:right;
+	min-width: 70px;
+	padding: 5px;
+	margin-top: -27px;
+	margin-right: 10px;
+}

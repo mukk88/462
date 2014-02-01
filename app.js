@@ -115,11 +115,15 @@ app.get('/create', function(req, res){
 });
 
 app.post('/create', function(req,res){
-  req.session.userid = curID;
   var post = req.body;
-  idaccess[curID] = {username:post.username,token:false};
-  curID++;
-  res.redirect('/');
+  if(!post.username){
+    res.send('please input a username');
+  }else{
+    req.session.userid = curID;
+    idaccess[curID] = {username:post.username,token:false};
+    curID++;
+    res.redirect('/');
+  }
 });
 
 app.get('/logout', function(req, res){
@@ -157,7 +161,7 @@ app.get('/user/:userid', function(req,res){
       console.error(e);
     });
   }else{
-    res.send('this person has not checked into four square. yet. ');
+    res.render('account.html', {info:false});
   }
 });
 
@@ -189,6 +193,3 @@ http.createServer(app).listen(8080, function(){
 });
 
 https.createServer(options, app).listen(443);
-
-
-
