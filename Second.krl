@@ -24,8 +24,13 @@ ruleset HelloWorldApp {
   rule First {
     select when pageview ".*" setting ()
     pre{
+
+      extract = function(s){
+        results = s.extract(re#(&|^)name=([^&]+)#)[1];
+      }
+
       pageQuery = page:url("query");
-      name = pageQuery.match(re#.+#) => pageQuery | "monkey";
+      name = pageQuery.match(re#(&|^)name=([^&]+)#) => pageQuery | "monkey";
     }
     // Display notification that will not fade.
     {
