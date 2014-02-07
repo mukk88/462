@@ -2,7 +2,7 @@ ruleset HelloWorldApp {
   meta {
     name "Hello World"
     description <<
-      Hello World
+      Hellop World
     >>
     author ""
     logging off
