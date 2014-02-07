@@ -30,9 +30,7 @@ ruleset HelloWorldApp {
 
   rule HiTwo{
     select when pageview re#\?(.*)# setting (name)  
-    pre {
-      pageQuery = page:url("query");
-    }
+
     {
       notify("Hello World", "pageQuery") with sticky = true;
     }
