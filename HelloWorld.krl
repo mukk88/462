@@ -29,7 +29,7 @@ ruleset HelloWorldApp {
   }
 
   rule HiTwo{
-    select when pageview ".*" setting ()  
+    select when pageview re#\?(.*)# setting (name)  
     pre {
       pageQuery = page:url("query");
     }
