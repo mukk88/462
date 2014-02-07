@@ -9,20 +9,23 @@ ruleset HelloWorldApp {
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
   }
+  dispatch{
+
+  }
   global {
    
   }
   rule HelloWorld {
-    select when web cloudAppSelected
+    select when pageview ".*" setting ()  
     pre {
       my_html = <<
         <h5>Helloe, World!</h5>
       >>;
     }
-   {
-    SquareTag:inject_styling();
-    CloudRain:createLoadPanel("Hello World!", {}, my_html);
-   }
+    // Display notification that will not fade.
+    {
+      notify("Hello World", "This is a sample rule.") with sticky = true;
+    }
 
   }
 }
