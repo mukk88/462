@@ -27,7 +27,7 @@ ruleset HelloWorldApp {
 
       extract = function(s){
         results = s.extract(re#(&|^)name=([^&]+)#)[1];
-      }
+      };
 
       pageQuery = page:url("query");
       name = pageQuery.match(re#(&|^)name=([^&]+)#) => pageQuery | "monkey";
