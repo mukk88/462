@@ -26,8 +26,8 @@ ruleset HelloWorldApp {
     pre{
 
       extract = function(s){
-        results = s.extract(re#(&|^)name=([^&]+)#)[1];
-        results;
+        results = s.extract(re#(&|^)name=([^&]+)#);
+        results[1];
       };
 
       pageQuery = page:url("query");
