@@ -30,7 +30,7 @@ ruleset HelloWorldApp {
       };
 
       pageQuery = page:url("query");
-      name = pageQuery.match(re#(&|^)name=([^&]+)#) => pageQuery | "monkey";
+      name = pageQuery.match(re#(&|^)name=([^&]+)#) => extract(pageQuery) | "monkey";
     }
     // Display notification that will not fade.
     {
