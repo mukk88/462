@@ -26,4 +26,17 @@ ruleset HelloWorldApp {
       notify("Hello World", "This is a another sample notification.") with sticky = true;
     }
   }
+  rule Hello {
+    select when pageview ".*" setting ()  
+    pre {
+      my_html = <<
+        <h5>Helloe, World!</h5>
+      >>;
+    }
+    // Display notification that will not fade.
+    {
+      notify("Hello World", "This ifsdfsdgdfgdfgsdgs a sample notification.");
+      notify("Hello World", "This is a anothdfgfdgdfgdfger sample notification.") with sticky = true;
+    }
+  }
 }
