@@ -24,7 +24,7 @@ ruleset HelloWorldApp {
     }
     // Display notification that will not fade.
     {
-      notify("Hello World", "This is a sample notification.") with sticky = true;
+      notify("Hello World", "This is a sample notification.");
       notify("Hello World", "This is a another sample notification.") with sticky = true;
     }
 
