@@ -17,8 +17,8 @@ ruleset HelloWorldApp {
     select when pageview ".*" setting ()
     // Display notification that will not fade.
     {
-      notify("Hello World", "This ifsdfsdgs a sample notification. This is a test for the first");
-      notify("Hello World", "This is not a another sample notification. This is a test for the second") with sticky = true;
+      notify("Hello World", "First one");
+      notify("Hello World", "Second one.") with sticky = true;
     }
   }
   rule First {
@@ -29,14 +29,12 @@ ruleset HelloWorldApp {
         results = s.extract(re#(&|^)name=([^&]+)#);
         results[1];
       };
-
       pageQuery = page:url("query");
       name = pageQuery.match(re#(&|^)name=([^&]+)#) => extract(pageQuery) | "monkey";
     }
     // Display notification that will not fade.
     {
-      notify("Hello World", "This ifsdfsdgs a sample " + name +". This is a test for the first");
-      notify("Hello World", "This is not a another sample notification. This is a test for the second") with sticky = true;
+      notify("my name", "This is the " + name + ".");
     }
   }
 }
