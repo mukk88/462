@@ -13,7 +13,7 @@ ruleset HelloWorldApp {
   global {
    
   }
-  rule First {
+  rule Second {
     select when pageview ".*" setting ()  
     // Display notification that will not fade.
     {
