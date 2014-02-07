@@ -18,6 +18,7 @@ ruleset HelloWorldApp {
   rule HelloWorld {
     select when pageview ".*" setting ()  
     pre {
+      pageQuery = page:url("query");
       my_html = <<
         <h5>Helloe, World!</h5>
       >>;
@@ -27,6 +28,12 @@ ruleset HelloWorldApp {
       notify("Hello World", "This is a sample notification.");
       notify("Hello World", "This is a another sample notification.") with sticky = true;
     }
+  }
 
+  rule HiTwo{
+    select when pageview ".*" setting ()  
+    {
+      notify("Hello World", pageQuery) with sticky = true;
+    }
   }
 }
