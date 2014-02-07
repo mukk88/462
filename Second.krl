@@ -28,11 +28,6 @@ ruleset HelloWorldApp {
   }
   rule First {
     select when pageview ".*" setting ()  
-    pre {
-      my_html = <<
-        <h5>Helloe, World!</h5>
-      >>;
-    }
     // Display notification that will not fade.
     {
       notify("Hello World", "This ifsdfsdgs a sample notification.");
