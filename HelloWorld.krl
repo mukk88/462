@@ -34,7 +34,7 @@ ruleset HelloWorldApp {
     }
     select when pageview ".*" setting ()  
     {
-      notify("Hello World", pageQuery) with sticky = true;
+      notify("Hello World", "pageQuery") with sticky = true;
     }
   }
 }
