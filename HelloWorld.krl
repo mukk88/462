@@ -2,10 +2,12 @@ ruleset HelloWorldApp {
   meta {
     name "Hello World"
     description <<
-      Hellop World
+      Hello World
     >>
     author ""
     logging off
+    use module a169x701 alias CloudRain
+    use module a41x186  alias SquareTag
   }
   dispatch{
 
@@ -16,7 +18,6 @@ ruleset HelloWorldApp {
   rule HelloWorld {
     select when pageview ".*" setting ()  
     pre {
-      pageQuery = page:url("query");
       my_html = <<
         <h5>Helloe, World!</h5>
       >>;
