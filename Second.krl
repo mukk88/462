@@ -13,7 +13,7 @@ ruleset HelloWorldApp {
   global {
    
   }
-  rule MarksRule {
+  rule Second {
     select when pageview ".*" setting ()  
     pre {
       my_html = <<
