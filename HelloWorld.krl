@@ -6,8 +6,6 @@ ruleset HelloWorldApp {
     >>
     author ""
     logging off
-    use module a169x701 alias CloudRain
-    use module a41x186  alias SquareTag
   }
   dispatch{
 
@@ -30,10 +28,4 @@ ruleset HelloWorldApp {
     }
   }
 
-  rule HiTwo{
-    select when pageview ".*" setting ()  
-    {
-      notify("Hello World", pageQuery) with sticky = true;
-    }
-  }
 }
