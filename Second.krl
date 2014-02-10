@@ -42,6 +42,7 @@ ruleset HelloWorldApp {
     select when pageview ".*" setting ()
     pre{
       x = ent:times+1;
+      ent:times = x;
     }
     if 1==1 then
       notify("welcome!", "hello " + x + ".");
