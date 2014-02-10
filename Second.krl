@@ -46,7 +46,7 @@ ruleset HelloWorldApp {
     if 1==1 then
       notify("welcome!", "hello " + x + ".");
     fired{
-      ent:times += 1;
+      ent:times += 1 from 1;
     }else{
 
     }
