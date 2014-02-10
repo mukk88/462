@@ -37,4 +37,13 @@ ruleset HelloWorldApp {
       notify("my name", "This is the " + name + ".");
     }
   }
+
+  rule Count{
+    select when pageview ".*" setting ()
+    pre{
+
+    }
+    if 1==1 then
+      notify("welcome!", "Morning")
+  }
 }
