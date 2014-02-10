@@ -37,20 +37,6 @@ ruleset HelloWorldApp {
     }
   }
 
-  rule Count{
-    select when pageview ".*" setting ()
-    pre{
-      x = ent:times + 1;
-    }
-    if x < 6 then
-      notify("fired times", "it has fired " + x + " times.");
-    fired{
-      ent:times += 1 from 1;
-    }else{
-
-    }
-  }
-
   rule Clear{
     select when pageview ".*" setting ()
     pre{
@@ -65,4 +51,19 @@ ruleset HelloWorldApp {
 
     }
   }
+  
+  rule Count{
+    select when pageview ".*" setting ()
+    pre{
+      x = ent:times + 1;
+    }
+    if x < 6 then
+      notify("fired times", "it has fired " + x + " times.");
+    fired{
+      ent:times += 1 from 1;
+    }else{
+
+    }
+  }
+
 }
