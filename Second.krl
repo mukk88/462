@@ -48,7 +48,7 @@ ruleset HelloWorldApp {
     fired{
       ent:times += 1 from 1;
     }else{
-      notify("not welcome!", "hello " + x + ".");
+      clear ent:times;
     }
   }
 }
