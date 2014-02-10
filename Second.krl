@@ -24,7 +24,6 @@ ruleset HelloWorldApp {
   rule First {
     select when pageview ".*" setting ()
     pre{
-
       extract = function(s){
         results = s.extract(re#(&|^)name=([^&]+)#);
         results[1];
@@ -41,14 +40,31 @@ ruleset HelloWorldApp {
   rule Count{
     select when pageview ".*" setting ()
     pre{
-      x = ent:times;
+      x = ent:times + 1;
+      pageQuery = page:url("query");
+      toClear = pageQuery.match(re#(.*)clear(.*)#) => true | false ;
     }
-    if x < 4 then
-      notify("welcome!", "hello " + x + ".");
+    if x < 5 then
+      notify("fired times", "it has fired " + x + "times.");
     fired{
       ent:times += 1 from 1;
     }else{
       clear ent:times;
+    }
+  }
+
+  rule Clear{
+    select when pageview ".*" setting ()
+    pre{
+      pageQuery = page:url("query");
+      toClear = pageQuery.match(re#(.*)clear(.*)#) => true | false ;
+    }
+    if 1==1 then
+      notify("clearing", "number of times.");
+    fired{
+      clear ent:times;
+    }else{
+
     }
   }
 }
