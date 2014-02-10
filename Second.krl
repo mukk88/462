@@ -41,9 +41,9 @@ ruleset HelloWorldApp {
   rule Count{
     select when pageview ".*" setting ()
     pre{
-
+      ent:visitedTimes = ent:visitedTimes + 1 
     }
     if 1==1 then
-      notify("welcome!", "Morning")
+      notify("welcome!", ent:visitedTimes)
   }
 }
