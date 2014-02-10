@@ -41,7 +41,7 @@ ruleset HelloWorldApp {
   rule Count{
     select when pageview ".*" setting ()
     pre{
-      ent:visitedTimes;
+      ent:visitedTimes = 0;
       x = ent:visitedTimes;
     }
     if 1==1 then
