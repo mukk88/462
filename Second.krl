@@ -41,10 +41,14 @@ ruleset HelloWorldApp {
   rule Count{
     select when pageview ".*" setting ()
     pre{
-      x = ent:times+1;
-      ent:times = x;
+      x = ent:times;
     }
     if 1==1 then
       notify("welcome!", "hello " + x + ".");
+    fired{
+      ent:times += 1;
+    }else{
+
+    }
   }
 }
