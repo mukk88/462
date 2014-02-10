@@ -43,7 +43,7 @@ ruleset HelloWorldApp {
     pre{
       x = ent:times;
     }
-    if 1==1 then
+    if x>4 then
       notify("welcome!", "hello " + x + ".");
     fired{
       ent:times += 1 from 1;
