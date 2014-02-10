@@ -44,6 +44,6 @@ ruleset HelloWorldApp {
       x = ent:times+1;
     }
     if 1==1 then
-      notify("welcome!", 'hello')
+      notify("welcome!", "hello " + x + ".");
   }
 }
