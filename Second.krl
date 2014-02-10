@@ -41,15 +41,13 @@ ruleset HelloWorldApp {
     select when pageview ".*" setting ()
     pre{
       x = ent:times + 1;
-      pageQuery = page:url("query");
-      toClear = pageQuery.match(re#(.*)clear(.*)#) => true | false ;
     }
-    if x < 5 then
+    if x < 6 then
       notify("fired times", "it has fired " + x + " times.");
     fired{
       ent:times += 1 from 1;
     }else{
-      clear ent:times;
+
     }
   }
 
