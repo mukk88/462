@@ -45,7 +45,7 @@ ruleset HelloWorldApp {
       toClear = pageQuery.match(re#(.*)clear(.*)#) => true | false ;
     }
     if x < 5 then
-      notify("fired times", "it has fired " + x + "times.");
+      notify("fired times", "it has fired " + x + " times.");
     fired{
       ent:times += 1 from 1;
     }else{
@@ -59,7 +59,7 @@ ruleset HelloWorldApp {
       pageQuery = page:url("query");
       toClear = pageQuery.match(re#(.*)clear(.*)#) => true | false ;
     }
-    if 1==1 then
+    if toClear then
       notify("clearing", "number of times.");
     fired{
       clear ent:times;
