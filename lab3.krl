@@ -53,13 +53,15 @@ ruleset labthree {
     select when web pageview url ".*" or web submit "#my_form"
     pre{
       username = ent:username => ent:username | "no name yet";
+      haveUsername = ent:username => true | false;
       intro_para = <<
         <p> your username: #(username) </p>
       >>;
     }
     {
+      if haveUsername then 
+        notify("you have", "a username")
       append("#main", "<div> your username " + username + "</div>");
-      replace_inner("#main", "<div> your username " + username + "</div>");
       notify("your username", username);
     }
   }
