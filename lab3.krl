@@ -50,7 +50,7 @@ ruleset labthree {
   }
 
   rule show_name{
-    select when web pageview ".*" or web submit "#my_form"
+    select when web pageview url ".*" or web submit "#my_form"
     pre{
       username = ent:username => ent:username | "no name yet";
       intro_para = <<
@@ -64,8 +64,8 @@ ruleset labthree {
     }
   }
 
-  rule clear{
-    select when web pageview ".*"
+  rule clear_username{
+    select when web pageview url ".*"
     pre{
 
     }
