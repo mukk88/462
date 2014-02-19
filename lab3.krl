@@ -47,8 +47,12 @@ ruleset labthree {
     select when web pageview ".*" or web submit "#my_form"
     pre{
       username = ent:username => ent:username | "no name yet";
+      intro_para = <<
+        <p> your username: #(username) </p>
+      >>;
     }
     {
+      append("#main", intro_para);
       notify("your username", username);
     }
   }
