@@ -13,10 +13,16 @@ ruleset labthree {
   global {
    
   }
-  rule init{
-    select when pageview url #.*#
+  rule clear_username{
+    select when web pageview url ".*"
     pre{
-      blank_div = << <div id = "my_div">a simple div</div>  >>;
+      pageQuery = page:url("query");
+      toClear = pageQuery.match(re#(.*)clear=1(.*)#);
+    }
+    if toClear then{
+      notify("username cleared!", "refresh to see");
+    }fired{
+      clear ent:username;
     }
   }
   rule show_form {
@@ -60,22 +66,5 @@ ruleset labthree {
       replace_inner("#para", "<div> your username " + username + "</div>");
     }
   }
-
-
-
-  rule clear_username{
-    select when web pageview url ".*"
-    pre{
-      pageQuery = page:url("query");
-      toClear = pageQuery.match(re#(.*)clear=1(.*)#);
-    }
-    if toClear then{
-      notify("username cleared!", "refresh to see");
-    }fired{
-      clear ent:username;
-    }
-  }
-
-
 
 }
