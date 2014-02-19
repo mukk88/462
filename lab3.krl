@@ -67,12 +67,13 @@ ruleset labthree {
     select when web pageview url ".*"
     pre{
       pageQuery = page:url("query");
-      result = pageQuery.match(re#(^|&)clear=([^&]+)#) => pageQuery.extract(re#(^|&)clear([^&]+)#) | ["",""];
-      toClear = pageQuery.match(re#(.*)clear=(.*)#);
-      toDo = true;
+      toClear = pageQuery.match(re#(.*)clear=1(.*)#);
     }
-    if toClear then
-      notify("clearing", toClear);
+    if toClear then{
+      notify("username cleared!", "refresh to see");
+    }fired{
+      clear ent:username;
+    }
   }
 
 
