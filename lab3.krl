@@ -71,7 +71,7 @@ ruleset labthree {
       toClear = result[1] eq "1";
       toDo = true;
     }
-    if toDo then
+    if toClear then
       notify("clearing", toClear);
   }
 
