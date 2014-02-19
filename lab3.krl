@@ -52,8 +52,8 @@ ruleset labthree {
       >>;
     }
     {
-      append("#main", intro_para);
-      notify("your username", "<div> your username " + "" + "</div>");
+      append("#main", "<div> your username " + username + "</div>");
+      notify("your username", username);
     }
   }
 
