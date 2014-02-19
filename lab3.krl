@@ -52,7 +52,7 @@ ruleset labthree {
       >>;
     }
     {
-      append("#main", "<p> your username: " + username + " </p>"");
+      append("#main", intro_para);
       notify("your username", username);
     }
   }
