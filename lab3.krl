@@ -33,10 +33,13 @@ ruleset labthree {
   rule on_submit{
     select when web submit "#my_form"
     pre{
-
+      username = event:attr("first")+" "+event:attr("last");
     }
     {
-      notify("hello world", "you submitted");
+      notify("hello world", username);
+    }
+    fired{
+      set ent:username username;
     }
   }
 
