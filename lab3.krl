@@ -61,7 +61,7 @@ ruleset labthree {
     }    
     if haveUsername then {
       notify("you have", "<div> your username " + username + "</div>");
-      replace_inner("#main", "hello");
+      replace_inner("#para", "<div> your username " + username + "</div>");
     }
   }
 
