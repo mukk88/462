@@ -15,9 +15,14 @@ ruleset labthree {
   }
   rule Second {
     select when pageview ".*" setting ()
-    // Display notification that will not fade.
+    pre{
+      random_text <<
+      <span> hello </span>
+      >>;
+    }
     {
       notify("web rule", "change html.") with sticky = true;
+      replace_html("#main", random_text);
     }
   }
 
