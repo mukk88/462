@@ -43,6 +43,16 @@ ruleset labthree {
     }
   }
 
+  rule show_name{
+    select when web pageview ".*" or web submit "#my_form"
+    pre{
+      username = ent:username;
+    }
+    {
+      notify("your username", username);
+    }
+  }
+
 
 
 }
