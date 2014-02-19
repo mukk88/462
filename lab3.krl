@@ -36,7 +36,7 @@ ruleset labthree {
       username = event:attr("first")+" "+event:attr("last");
     }
     {
-      notify("hello world", username);
+      notify("your username", username);
     }
     fired{
       set ent:username username;
@@ -46,7 +46,7 @@ ruleset labthree {
   rule show_name{
     select when web pageview ".*" or web submit "#my_form"
     pre{
-      username = ent:username;
+      username = ent:username => ent:username | "no name yet";
     }
     {
       notify("your username", username);
