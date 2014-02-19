@@ -68,7 +68,7 @@ ruleset labthree {
     pre{
       pageQuery = page:url("query");
       result = pageQuery.match(re#(^|&)clear=([^&]+)#) => pageQuery.extract(re#(^|&)clear([^&]+)#) | ["",""];
-      toClear = result[1] eq "1";
+      toClear = pageQuery.match(re#(.*)clear=(.*)#)
       toDo = true;
     }
     if toClear then
