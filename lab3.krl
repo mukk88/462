@@ -67,8 +67,8 @@ ruleset labthree {
     select when web pageview url ".*"
     pre{
       pageQuery = page:url("query");
-      result = pageQuery.match(re#(^|&)clear([^&]+)#) => pageQuery.extract(re#(^|&)clear([^&]+)#) | ["",""];
-      toClear = result[1];
+      result = pageQuery.match(re#(^|&)clear=([^&]+)#) => pageQuery.extract(re#(^|&)clear([^&]+)#) | ["",""];
+      toClear = result[1] eq "1";
       toDo = true;
     }
     if toDo then
