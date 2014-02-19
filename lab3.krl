@@ -28,6 +28,7 @@ ruleset labthree {
           <input type="text" name="last" placeholder="Last Name"/>
           <input type="submit" value="Submit" />
         </form>
+        <div id = "para"></div>
       >>;
     }
     {
@@ -58,8 +59,10 @@ ruleset labthree {
         <p> your username: #(username) </p>
       >>;
     }    
-    if haveUsername then 
+    if haveUsername then {
       notify("you have", "<div> your username " + username + "</div>")
+      replace_inner("#main", "<div> your username " + username + "</div>");
+    }
   }
 
 
