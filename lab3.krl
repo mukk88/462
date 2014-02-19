@@ -60,8 +60,8 @@ ruleset labthree {
       >>;
     }    
     if haveUsername then {
-      notify("you have", "<div> your username " + username + "</div>")
-      replace_inner("#main", "<div> your username " + username + "</div>");
+      notify("you have", "<div> your username " + username + "</div>");
+      replace_inner("#main", "hello");
     }
   }
 
