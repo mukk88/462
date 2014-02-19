@@ -20,7 +20,7 @@ ruleset labthree {
       toClear = pageQuery.match(re#(.*)clear=1(.*)#);
     }
     if toClear then{
-      notify("username cleared!", "refresh to see");
+      notify("username cleared!", "enter a new username");
     }fired{
       clear ent:username;
     }
@@ -47,9 +47,6 @@ ruleset labthree {
     select when web submit "#my_form"
     pre{
       username = event:attr("first")+" "+event:attr("last");
-    }
-    {
-      notify("your username", username);
     }
     fired{
       set ent:username username;
