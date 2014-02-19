@@ -13,16 +13,20 @@ ruleset labthree {
   global {
    
   }
-  rule ChangeHtml {
+  rule show_form {
     select when pageview url #.*#
-    pre{
-      random_text = <<
-      <span> hello </span>
+    pre {
+      a_form = <<
+        <form id="my_form" onsubmit="return false;">
+          <input type="text" name="first" placeholder="First Name"/>
+          <input type="text" name="last" placeholder="Last Name"/>
+          <input type="submit" value="Submit" />
+        </form>
       >>;
     }
     {
-      append("#main", random_text);
-      notify("web rule", "change html.") with sticky = true;
+      append("#main",a_form);
+      watch("#my_form","submit");
     }
   }
 
