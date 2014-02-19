@@ -14,16 +14,15 @@ ruleset labthree {
    
   }
   rule ChangeHtml {
-    select when pageview ".*" setting ()
+    select when pageview url #.*#
     pre{
       random_text = <<
       <span> hello </span>
       >>;
-      append("#main", random_text);
     }
     {
-      notify("web rule", "change html.") with sticky = true;
       append("#main", random_text);
+      notify("web rule", "change html.") with sticky = true;
     }
   }
 
