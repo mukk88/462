@@ -52,8 +52,22 @@ ruleset labthree {
       >>;
     }
     {
-      append("#main", intro_para);
+      append("#main", "<p> your username: " + username + " </p>"");
       notify("your username", username);
+    }
+
+    rule clear_name{
+      select when pageview ".*"
+      pre{
+        pageQuery = page:url("query");
+        toClear = pageQuery.match(re#(^|&)clear([^&]+)#) => true | false ;
+        if toClear then
+           notify("clearing", "username.");
+        fired{
+          clear ent:username;
+        }
+
+      }
     }
   }
 
