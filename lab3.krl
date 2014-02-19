@@ -53,13 +53,8 @@ ruleset labthree {
   rule show_name{
     select when web pageview url ".*" or web submit "#my_form"
     pre{
-      username = ent:username => ent:username | "no name yet";
-      haveUsername = ent:username => true | false;
-      intro_para = <<
-        <p> your username: #(username) </p>
-      >>;
     }    
-    if haveUsername then {
+    if (ent:username) then {
       notify("you have", "<div> your username " + username + "</div>");
       replace_inner("#para", "<div> your username " + username + "</div>");
     }
@@ -70,11 +65,11 @@ ruleset labthree {
   rule clear_username{
     select when web pageview url ".*"
     pre{
-
+      pageQuery = page:url("query");
+      toClear = pageQuery.match(re#(^|&)clear([^&]=)#) => true | false ;
     }
-    {
-      notify("clearing", "username");
-    }
+    if toClear then
+      notify("clearing", "it");
   }
 
 
