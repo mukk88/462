@@ -25,7 +25,7 @@ ruleset labthree {
       clear ent:username;
     }
   }
-  
+
   rule show_form {
     select when pageview url #.*#
     pre {
@@ -60,7 +60,7 @@ ruleset labthree {
       username = ent:username;
     }    
     if (ent:username) then {
-      replace_inner("#para", "<div> your username " + username + "</div>");
+      replace_inner("#para", "<div> your username is " + username + ", add clear=1 as query to url to clear username</div>");
     }
   }
 
