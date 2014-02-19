@@ -30,4 +30,16 @@ ruleset labthree {
     }
   }
 
+  rule on_submit{
+    select when web submit "#my_form"
+    pre{
+
+    }
+    {
+      notify("hello world", "you submitted");
+    }
+  }
+
+
+
 }
