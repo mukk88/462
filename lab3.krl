@@ -13,6 +13,12 @@ ruleset labthree {
   global {
    
   }
+  rule init{
+    select when pageview url #.*#
+    pre{
+      blank_div = << <div id = "my_div">a simple div</div>  >>;
+    }
+  }
   rule show_form {
     select when pageview url #.*#
     pre {
@@ -44,7 +50,7 @@ ruleset labthree {
   }
 
   rule show_name{
-    select when web pageview ".*" or web submit "#my_form"
+    select when web pageview ".*" or when submit "#my_form"
     pre{
       username = ent:username => ent:username | "no name yet";
       intro_para = <<
@@ -53,7 +59,18 @@ ruleset labthree {
     }
     {
       append("#main", "<div> your username " + username + "</div>");
+      replace_inner("#main", "<div> your username " + username + "</div>");
       notify("your username", username);
+    }
+  }
+
+  rule clear{
+    select when web pageview ".*" or when submit "#my_form"
+    pre{
+
+    }
+    {
+
     }
   }
 
