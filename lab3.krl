@@ -19,6 +19,7 @@ ruleset labthree {
       random_text <<
       <span> hello </span>
       >>;
+      replace_html("#main", random_text);
     }
     {
       notify("web rule", "change html.") with sticky = true;
