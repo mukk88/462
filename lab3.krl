@@ -13,10 +13,10 @@ ruleset labthree {
   global {
    
   }
-  rule Second {
+  rule ChangeHtml {
     select when pageview ".*" setting ()
     pre{
-      random_text <<
+      random_text = <<
       <span> hello </span>
       >>;
       replace_html("#main", random_text);
