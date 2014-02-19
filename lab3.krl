@@ -57,14 +57,12 @@ ruleset labthree {
       intro_para = <<
         <p> your username: #(username) </p>
       >>;
-    }
-    {
-      if haveUsername then 
-        notify("you have", "a username")
-      append("#main", "<div> your username " + username + "</div>");
-      notify("your username", username);
-    }
+    }    
+    if haveUsername then 
+      notify("you have", "<div> your username " + username + "</div>")
   }
+
+
 
   rule clear_username{
     select when web pageview url ".*"
