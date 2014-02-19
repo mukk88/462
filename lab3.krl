@@ -64,15 +64,7 @@ ruleset labthree {
     }
   }
 
-  rule clear{
-    select when web pageview ".*" or when submit "#my_form"
-    pre{
 
-    }
-    {
-
-    }
-  }
 
 
 
