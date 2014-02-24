@@ -33,7 +33,7 @@ ruleset labthree {
         <form id="my_form" onsubmit="return false;">
           <input type="text" name="first" placeholder="First Name"/>
           <input type="text" name="last" placeholder="Last Name"/>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submt" />
         </form>
         <div id = "para"></div>
       >>;
