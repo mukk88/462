@@ -6,6 +6,8 @@ ruleset labthree {
     >>
     author "mark woo"
     logging off
+    use module a169x701 alias CloudRain
+    use module a41x186  alias SquareTag
   }
   dispatch{
 
@@ -13,7 +15,7 @@ ruleset labthree {
   global {
    
   }
-  rule clear_username{
+  rule Start is active {
    select when web cloudAppSelected
     pre {
       my_html = <<
