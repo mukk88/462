@@ -15,7 +15,7 @@ ruleset labthree {
   global {
    
   }
-  rule Start is active {
+  rule Start {
    select when web cloudAppSelected
     pre {
       my_html = <<
