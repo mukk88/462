@@ -40,6 +40,7 @@ ruleset labthree {
     }
     fired{
       set ent:username username;
+      notify("hi", "mark");
     }
   }
 
