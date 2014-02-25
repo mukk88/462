@@ -23,10 +23,15 @@ ruleset labthree {
 
       have = <<
         <h1>Movie Found!</h1>
+        <p>Movie Thumbnail</p>
+        <p>Title</p>
+        <p>Release Year</p>
+        <p>Synopsis</p>
+        <p>Critic Rating</p>
       >>;
 
       no_have = <<
-        <h1>Movie not Found!</h1>
+        <h1>Movie not Found! Please try again.</h1>
       >>;
 
       result = (total>0) => have | no_have;
