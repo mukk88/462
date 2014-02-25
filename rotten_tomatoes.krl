@@ -46,7 +46,7 @@ ruleset labthree {
       q = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=uvjbkdcys98bm9f8wzk9kke8&q=Toy+Story+3&page_limit=1");
     }
     {
-      notify("hi", q.total);
+      notify("hi", q);
     }
     fired{
       set ent:title title;
