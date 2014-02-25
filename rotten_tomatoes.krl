@@ -33,4 +33,24 @@ ruleset labthree {
    }
   }
 
+  rule on_submit{
+    select when web submit "#my_form"
+    pre{
+      username = event:attr("first")+" "+event:attr("last");
+    }
+    fired{
+      set ent:username username;
+    }
+  }
+
+  rule show_name{
+    select when web cloudAppSelected or web submit "#my_form"
+    pre{
+      username = ent:username;
+    }    
+    if (ent:username) then {
+      replace_inner("#para", "<div> your username is " + username + ", add clear=1 as query to url to clear username</div>");
+    }
+  }
+
 }
