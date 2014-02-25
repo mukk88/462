@@ -21,6 +21,7 @@ ruleset labthree {
         "q":title
       }).pick("$.content").decode()
       z.pick("$.total").as("num");
+      z
     }
   }
   rule Start {
