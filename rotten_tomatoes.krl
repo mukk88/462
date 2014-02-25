@@ -18,8 +18,8 @@ ruleset labthree {
       {
         "apikey":"uvjbkdcys98bm9f8wzk9kke8",
         "q":title
-      }).pick("$.content").decode()
-      info.pick("$.total").as("num");
+      }).pick("$.content").decode();
+      total = info.pick("$.total").as("num");
     }
   }
   rule Start {
