@@ -20,6 +20,7 @@ ruleset labthree {
         "q":title
       }).pick("$.content").decode();
       total = info.pick("$.total").as("num");
+      34;
     }
   }
   rule Start {
