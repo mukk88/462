@@ -49,21 +49,9 @@ ruleset labthree {
       q = f(title);
     }
     {
+      replace_inner("#para", "<div> your title is " + title + "");
       notify("hi", q);
     }
-    fired{
-      set ent:title title;
-    }
   }
-
-  rule show_name{
-    select when web cloudAppSelected or web submit "#my_form"
-    pre{
-      title = ent:title;
-    }    
-    if (ent:title) then {
-      replace_inner("#para", "<div> your title is " + title + "");
-    }
-  }
-
+  
 }
