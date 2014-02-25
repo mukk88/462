@@ -36,7 +36,7 @@ ruleset labthree {
   rule on_submit{
     select when web submit "#my_form"
     pre{
-      title = event:attr("title")";
+      title = event:attr("title");
     }
     {
       notify("hi", title);
