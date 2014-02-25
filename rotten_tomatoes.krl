@@ -24,10 +24,10 @@ ruleset labthree {
       have = <<
         <h1>Movie Found!</h1>
         <p>Movie Thumbnail: <img src="#{info.pick("$.movies[0].posters.thumbnail")}"></p>
-        <p>Title: #{$.movies[0].title}</p>
-        <p>Release Year: #{$.movies[0].year}</p>
-        <p>Synopsis: #{$.movies[0].synopsis}</p>
-        <p>Critic Rating: #{$.movies[0].ratings.critics_rating}</p>
+        <p>Title: #{info.pick("$.movies[0].title")}</p>
+        <p>Release Year: #{info.pick("$.movies[0].year")}</p>
+        <p>Synopsis: #{info.pick("$.movies[0].synopsis")}</p>
+        <p>Critic Rating: #{info.pick("$.movies[0].ratings.critics_rating")}</p>
         <br>
       >>;
 
