@@ -30,6 +30,7 @@ ruleset labthree {
    {
     SquareTag:inject_styling();
     CloudRain:createLoadPanel("Hello World!", {}, a_form);
+    watch("#my_form","submit");
    }
   }
 
