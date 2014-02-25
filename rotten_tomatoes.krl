@@ -14,12 +14,13 @@ ruleset labthree {
   }
   global {
     f = function(title) {
-      z = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+      info = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
       {
         "apikey":"uvjbkdcys98bm9f8wzk9kke8",
         "q":title
       }).pick("$.content").decode()
-      z.pick("$.total").as("num");
+      total = info.pick("$.total").as("num");
+      total;
     }
   }
   rule Start {
