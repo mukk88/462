@@ -21,6 +21,7 @@ ruleset labthree {
       }).pick("$.content").decode();
       total = info.pick("$.total").as("num");
       result = (total>0) => "have" | "no have";
+      result;
     }
   }
   rule Start {
