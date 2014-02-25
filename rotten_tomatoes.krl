@@ -19,8 +19,8 @@ ruleset labthree {
         "apikey":"uvjbkdcys98bm9f8wzk9kke8",
         "q":title
       }).pick("$.content").decode()
-      total = info.pick("$.total").as("num");
-      total;
+      r = info.pick("$.total").as("num");
+      return r;
     }
   }
   rule Start {
