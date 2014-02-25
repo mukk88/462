@@ -13,11 +13,15 @@ ruleset labthree {
 
   }
   global {
-      f = function getMovieTitle(title) {
-        r = 43;
-        z = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=uvjbkdcys98bm9f8wzk9kke8&q=Toy+Story+3&page_limit=1").pick("$.content").decode().pick("$.total").as("num");
-        r;
-      }
+    f = function(title) {
+      r = 43;
+      z = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+      {
+        "apikey":"",
+        "q":title
+      }).pick("$.content").decode()
+      z.pick("$.total").as("num");
+    }
   }
   rule Start {
    select when web cloudAppSelected
