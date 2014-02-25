@@ -23,15 +23,18 @@ ruleset labthree {
 
       have = <<
         <h1>Movie Found!</h1>
-        <p>Movie Thumbnail</p>
+        <p>Movie Thumbnail: <img src="#{info.pick("$.movies[0].posters.thumbnail")}"></p>
         <p>Title</p>
         <p>Release Year</p>
         <p>Synopsis</p>
         <p>Critic Rating</p>
+        <br>
       >>;
 
       no_have = <<
-        <h1>Movie not Found! Please try again.</h1>
+        <h1>#{title} not Found!</h1>
+        <p>Please try again</p>
+        <br>
       >>;
 
       result = (total>0) => have | no_have;
