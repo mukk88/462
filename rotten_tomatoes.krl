@@ -19,9 +19,9 @@ ruleset labthree {
       {
         "apikey":"",
         "q":title
-      }).pick("$.content").decode()
+      }).pick("$.content").decode();
       z.pick("$.total").as("num");
-      z
+      z;
     }
   }
   rule Start {
