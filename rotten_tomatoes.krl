@@ -20,17 +20,18 @@ ruleset labthree {
         "q":title
       }).pick("$.content").decode()
       total = info.pick("$.total").as("num");
+      total;
     }
   }
   rule Start {
    select when web cloudAppSelected
     pre {
       a_form = <<
-        <div id = "para"></div>
         <form id="my_form" onsubmit="return false;">
           <input type="text" name="title" placeholder="Movie Title"/>
           <input type="submit" value="Submit" />
         </form>
+        <div id = "para"></div>
       >>;
     }
    {
@@ -47,9 +48,21 @@ ruleset labthree {
       q = f(title);
     }
     {
-      replace_inner("#para", "<div> your title is " + title + "");
       notify("hi", q);
     }
-
+    fired{
+      set ent:title title;
+    }
   }
+
+  rule show_name{
+    select when web cloudAppSelected or web submit "#my_form"
+    pre{
+      title = ent:title;
+    }    
+    if (ent:title) then {
+      replace_inner("#para", "<div> your title is " + title + "");
+    }
+  }
+
 }
