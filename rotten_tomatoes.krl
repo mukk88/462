@@ -14,8 +14,12 @@ ruleset labthree {
   }
   global {
     emit <|
-      function showMeTheMoney() {
-        return 42;
+      function getMovieInfo(title) {
+       r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+          {
+            "apikey":"uvjbkdcys98bm9f8wzk9kke8",
+          });
+        return r;
       }
     |>;
 
