@@ -2,7 +2,7 @@ ruleset labthree {
   meta {
     name "lab three"
     description <<
-      Hello World
+      Rotten Tomahtoes
     >>
     author "mark woo"
     logging off
@@ -20,8 +20,7 @@ ruleset labthree {
     pre {
       a_form = <<
         <form id="my_form" onsubmit="return false;">
-          <input type="text" name="first" placeholder="First Name"/>
-          <input type="text" name="last" placeholder="Last Name"/>
+          <input type="text" name="title" placeholder="Movie Title"/>
           <input type="submit" value="Submit" />
         </form>
         <div id = "para"></div>
@@ -37,23 +36,23 @@ ruleset labthree {
   rule on_submit{
     select when web submit "#my_form"
     pre{
-      username = event:attr("first")+" "+event:attr("last");
+      title = event:attr("title")";
     }
     {
-      notify("hi", "mark");
+      notify("hi", title);
     }
     fired{
-      set ent:username username;
+      set ent:title title;
     }
   }
 
   rule show_name{
     select when web cloudAppSelected or web submit "#my_form"
     pre{
-      username = ent:username;
+      title = ent:title;
     }    
-    if (ent:username) then {
-      replace_inner("#para", "<div> your username is " + username + ", add clear=1 as query to url to clear username</div>");
+    if (ent:title) then {
+      replace_inner("#para", "<div> your title is " + title + "");
     }
   }
 
