@@ -18,13 +18,18 @@ ruleset labthree {
   rule Start {
    select when web cloudAppSelected
     pre {
-      my_html = <<
-        <h5>Hello, World!</h5>
+      a_form = <<
+        <form id="my_form" onsubmit="return false;">
+          <input type="text" name="first" placeholder="First Name"/>
+          <input type="text" name="last" placeholder="Last Name"/>
+          <input type="submit" value="Submit" />
+        </form>
+        <div id = "para"></div>
       >>;
     }
    {
     SquareTag:inject_styling();
-    CloudRain:createLoadPanel("Hello World!", {}, my_html);
+    CloudRain:createLoadPanel("Hello World!", {}, a_form);
    }
   }
 
