@@ -13,12 +13,18 @@ ruleset labthree {
 
   }
   global {
-   r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
-      {
-        "apikey":"uvjbkdcys98bm9f8wzk9kke8",
-        "q":"Toy Story 3",
-        "page_limit":"1"
-      })
+    emit <|
+      function showMeTheMoney() {
+       r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+          {
+            "apikey":"uvjbkdcys98bm9f8wzk9kke8",
+            "q":"Toy Story 3",
+            "page_limit":"1"
+          });
+        return r;
+      }
+    |>;
+
   }
   rule Start {
    select when web cloudAppSelected
@@ -42,10 +48,9 @@ ruleset labthree {
     select when web submit "#my_form"
     pre{
       title = event:attr("title");
-      tattle = r.total;
     }
     {
-      notify("hi", tattle);
+      notify("hi", title);
     }
     fired{
       set ent:title title;
