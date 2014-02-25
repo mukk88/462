@@ -16,7 +16,7 @@ ruleset labthree {
     f = function(title) {
       z = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
       {
-        "apikey":"",
+        "apikey":"uvjbkdcys98bm9f8wzk9kke8",
         "q":title
       }).pick("$.content").decode()
       z.pick("$.total").as("num");
