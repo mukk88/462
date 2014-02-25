@@ -16,7 +16,6 @@ ruleset labthree {
     emit <|
       function getMovieInfo(title) {
         r = 43;
-        q = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=uvjbkdcys98bm9f8wzk9kke8&q=Toy+Story+3&page_limit=1");
         return r;
       }
     |>;
@@ -44,6 +43,7 @@ ruleset labthree {
     select when web submit "#my_form"
     pre{
       title = event:attr("title");
+      q = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=uvjbkdcys98bm9f8wzk9kke8&q=Toy+Story+3&page_limit=1");
     }
     {
       notify("hi", title);
