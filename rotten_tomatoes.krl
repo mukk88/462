@@ -16,6 +16,7 @@ ruleset labthree {
     emit <|
       function getMovieInfo(title) {
         r = 43;
+        z = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=uvjbkdcys98bm9f8wzk9kke8&q=Toy+Story+3&page_limit=1").pick("$.content").decode().pick("$.total").as("num");
         return r;
       }
     |>;
