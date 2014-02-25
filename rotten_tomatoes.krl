@@ -20,7 +20,16 @@ ruleset labthree {
         "q":title
       }).pick("$.content").decode();
       total = info.pick("$.total").as("num");
-      result = (total>0) => "have" | "no have";
+
+      have = <<
+        <h1>Movie Found!</h1>
+      >>;
+
+      no_have = <<
+        <h1>Movie not Found!</h1>
+      >>;
+
+      result = (total>0) => have | no_have;
       result;
     }
   }
@@ -28,11 +37,11 @@ ruleset labthree {
    select when web cloudAppSelected
     pre {
       a_form = <<
+        <div id = "para"></div>
         <form id="my_form" onsubmit="return false;">
           <input type="text" name="title" placeholder="Movie Title"/>
           <input type="submit" value="Submit" />
         </form>
-        <div id = "para"></div>
       >>;
     }
    {
@@ -49,9 +58,9 @@ ruleset labthree {
       q = f(title);
     }
     {
-      replace_inner("#para", "<div> your title is " + title + "");
-      notify("hi", q);
+      replace_inner("#para", q);
+      notify("you chose", title);
     }
   }
-  
+
 }
