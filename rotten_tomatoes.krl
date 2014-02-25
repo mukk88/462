@@ -38,9 +38,11 @@ ruleset labthree {
     pre{
       username = event:attr("first")+" "+event:attr("last");
     }
+    {
+      notify("hi", "mark");
+    }
     fired{
       set ent:username username;
-      notify("hi", "mark");
     }
   }
 
