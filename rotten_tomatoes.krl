@@ -20,7 +20,7 @@ ruleset labthree {
         "q":title
       }).pick("$.content").decode();
       total = info.pick("$.total").as("num");
-      34;
+      result = (total>0) => "have" | "no have";
     }
   }
   rule Start {
