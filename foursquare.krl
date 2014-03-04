@@ -15,8 +15,16 @@ ruleset foursquare {
   global {
 
   }
-  rule process_fs_checkin{
+  rule start{
     select when web cloudAppSelected
+    {
+      notify("starting", "lab5");
+    }
+
+  }
+
+  rule process_fs_checkin{
+    select when foursquare checkin
     {
       notify("checking", "foursquare");
     }
