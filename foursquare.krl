@@ -26,6 +26,9 @@ ruleset foursquare {
   rule process_fs_checkin{
     select when foursquare checkin
     pre{
+      checkin = ent:checkin;
+    }
+    fired{
       ent:checkin += 1 from 1;
     }
   }
