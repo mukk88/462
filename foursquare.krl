@@ -30,7 +30,7 @@ ruleset foursquare {
       city = event:attr("city");
       shout = event:attr("shout");
       createdAt = event:attr("createdAt");
-      body = event:attr("checkin").pick("$.createdAt");
+      body = event:attr("checkin").pick("$.createdAt").as("num");
     }
     fired{
       set ent:checkin body;
