@@ -26,11 +26,12 @@ ruleset foursquare {
   rule process_fs_checkin{
     select when foursquare checkin
     pre {
-      thisappt = false;
+      thisappt = 1;
     }
-    if thisappt then noop();
+    if thisappt < 3 then
+      notify("hi", "test");
     fired {
-      notify("checking", "foursquare");
+      ent:checkin += 1 from 1;
     }
 
   }
