@@ -32,6 +32,7 @@ ruleset foursquare {
       createdAt = event:attr("createdAt");
     }
     fired{
+      set ent:checkin "yes"
       set ent:venue venue;
       set ent:city city;
       set ent:shout shout;
@@ -43,6 +44,7 @@ ruleset foursquare {
     select when web cloudAppSelected
     pre{
       info = <<
+        <p> succeed: #{ent:checkin} </p>
         <p>Venue: #{ent:venue}</p>
         <p>City: #{ent:city}</p>
         <p>Shout: #{ent:shout}</p>
