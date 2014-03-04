@@ -27,9 +27,10 @@ ruleset foursquare {
     select when foursquare checkin
     pre{
       checkin = ent:test;
+      msg = event:attr("message")
     }
     fired{
-      set ent:checkin 5;
+      set ent:checkin msg;
     }
   }
 
