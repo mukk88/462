@@ -47,7 +47,8 @@ ruleset foursquare {
       shout = ent:shout;
       createdAt = ent:createdAt;
       info = <<
-        <h1>ni hao</h1>
+        <p>Venue: #{venue}</p>
+        <p>Venue: #{ent:venue}</p>
       >>;
     }
     {
