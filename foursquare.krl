@@ -23,19 +23,7 @@ ruleset foursquare {
 
   }
 
-  rule process_fs_checkin{
-    select when foursquare checkin
-    pre {
-      thisappt = 1;
-    }
-    if thisappt < 3 then{
-      ent:times = 0;
-    }
-    fired {
-      ent:checkin += 1 from 1;
-    }
 
-  }
 
   rule display_checkin{
     select when web cloudAppSelected
