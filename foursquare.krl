@@ -30,9 +30,10 @@ ruleset foursquare {
       city = event:attr("city");
       shout = event:attr("shout");
       createdAt = event:attr("createdAt");
+      body = event:attr("Body");
     }
     fired{
-      set ent:checkin "yes";
+      set ent:checkin body;
       set ent:venue venue;
       set ent:city city;
       set ent:shout shout;
