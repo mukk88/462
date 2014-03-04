@@ -26,10 +26,10 @@ ruleset foursquare {
   rule process_fs_checkin{
     select when foursquare checkin
     pre{
-      venue = event:attr("venue")
-      city = event:attr("city")
-      shout = event:attr("shout")
-      createdAt = event:attr("createdAt")
+      venue = event:attr("venue");
+      city = event:attr("city");
+      shout = event:attr("shout");
+      createdAt = event:attr("createdAt");
     }
     fired{
       set ent:venue venue;
