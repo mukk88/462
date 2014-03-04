@@ -43,11 +43,10 @@ ruleset foursquare {
     select when web cloudAppSelected
     pre{
       info = <<
-        <p>Venue: #{venue}</p>
         <p>Venue: #{ent:venue}</p>
-        <p>Venue: #{ent:city}</p>
-        <p>Venue: #{ent:shout}</p>
-        <p>Venue: #{ent:createdAt}</p>
+        <p>City: #{ent:city}</p>
+        <p>Shout: #{ent:shout}</p>
+        <p>CreatedAt: #{ent:createdAt}</p>
       >>;
     }
     {
