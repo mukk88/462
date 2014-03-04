@@ -23,7 +23,12 @@ ruleset foursquare {
 
   }
 
+  rule process_fs_checkin{
+    select when foursquare checkin
+    {
 
+    }
+  }
 
   rule display_checkin{
     select when web cloudAppSelected
