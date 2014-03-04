@@ -25,6 +25,10 @@ ruleset foursquare {
 
   rule process_fs_checkin{
     select when foursquare checkin
+    pre {
+      thisappt = false;
+    }
+    if thisappt then noop();
     fired {
       notify("checking", "foursquare");
     }
