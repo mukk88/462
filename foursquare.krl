@@ -26,10 +26,10 @@ ruleset foursquare {
   rule process_fs_checkin{
     select when foursquare checkin
     pre{
-      checkin = ent:checkin;
+      checkin = ent:test;
     }
     fired{
-      ent:checkin += 1 from 1;
+      set ent:checkin 5;
     }
   }
 
