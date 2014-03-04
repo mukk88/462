@@ -29,12 +29,10 @@ ruleset foursquare {
       info = event:attr("checkin").decode();
       venue = info.pick("$.venue.name");
       city = info.pick("$.venue.location.city");
-      shout = event:attr("shout");
-      createdAt = event:attr("createdAt");
-      body = event:attr("checkin").pick("$.createdAt").as("num");
+      shout = "a big shout out"
+      createdAt = info.pick("$.createdAt").as("num");
     }
     fired{
-      set ent:checkin body;
       set ent:venue venue;
       set ent:city city;
       set ent:shout shout;
@@ -46,7 +44,6 @@ ruleset foursquare {
     select when web cloudAppSelected
     pre{
       info = <<
-        <p> succeed: #{ent:checkin} </p>
         <p>Venue: #{ent:venue}</p>
         <p>City: #{ent:city}</p>
         <p>Shout: #{ent:shout}</p>
