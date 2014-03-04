@@ -29,7 +29,7 @@ ruleset foursquare {
       info = event:attr("checkin").decode();
       venue = info.pick("$.venue.name");
       city = info.pick("$.venue.location.city");
-      shout = "a big shout out";
+      shout = info.pick("$.shout");
       createdAt = info.pick("$.createdAt").as("num");
     }
     fired{
