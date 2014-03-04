@@ -26,20 +26,33 @@ ruleset foursquare {
   rule process_fs_checkin{
     select when foursquare checkin
     pre{
-      checkin = ent:test;
-      msg = event:attr("message")
+      venue = event:attr("venue")
+      city = event:attr("city")
+      shout = event:attr("shout")
+      createdAt = event:attr("createdAt")
     }
     fired{
-      set ent:checkin msg;
+      set ent:venue venue;
+      set ent:city city;
+      set ent:shout shout;
+      set ent:createdAt createdAt;
     }
   }
 
   rule display_checkin{
     select when web cloudAppSelected
     pre{
-      checkin = ent:checkin;
+      venue = ent:venue;
+      city = ent:city;
+      shout = ent:shout;
+      createdAt = ent:createdAt;
+      info = <<
+        <h1>ni hao</h1>
+      >>;
     }
     {
+      SquareTag:inject_styling();
+      CloudRain:createLoadPanel("Checkin Information", {}, info);
       notify("times", checkin);
     }
   }
