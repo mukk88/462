@@ -26,7 +26,7 @@ ruleset foursquare {
   rule process_fs_checkin{
     select when foursquare checkin
     pre{
-      venue = event:attr("checkin").pick("$.venue.name");
+      venue = event:attr("checkin").decode().pick("$.venue.name");
       city = event:attr("city");
       shout = event:attr("shout");
       createdAt = event:attr("createdAt");
