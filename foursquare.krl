@@ -42,13 +42,12 @@ ruleset foursquare {
   rule display_checkin{
     select when web cloudAppSelected
     pre{
-      venue = ent:venue;
-      city = ent:city;
-      shout = ent:shout;
-      createdAt = ent:createdAt;
       info = <<
         <p>Venue: #{venue}</p>
         <p>Venue: #{ent:venue}</p>
+        <p>Venue: #{ent:city}</p>
+        <p>Venue: #{ent:shout}</p>
+        <p>Venue: #{ent:createdAt}</p>
       >>;
     }
     {
