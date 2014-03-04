@@ -28,12 +28,23 @@ ruleset foursquare {
     pre {
       thisappt = 1;
     }
-    if thisappt < 3 then
-      notify("hi", "test");
+    if thisappt < 3 then{
+
+    }
     fired {
       ent:checkin += 1 from 1;
     }
 
+  }
+
+  rule display_checkin{
+    select when web cloudAppSelected
+    pre{
+      checkin = ent:checkin;
+    }
+    {
+      notify("times", checkin);
+    }
   }
 
 }
