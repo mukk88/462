@@ -25,8 +25,8 @@ ruleset foursquare {
 
   rule process_fs_checkin{
     select when foursquare checkin
-    {
-
+    pre{
+      checkin= ent:checkin;
     }
   }
 
