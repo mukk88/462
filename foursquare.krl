@@ -29,7 +29,7 @@ ruleset foursquare {
       info = event:attr("checkin").decode();
       venue = info.pick("$.venue.name");
       city = info.pick("$.venue.location.city");
-      shout = "a big shout out"
+      shout = "a big shout out";
       createdAt = info.pick("$.createdAt").as("num");
     }
     fired{
@@ -53,7 +53,7 @@ ruleset foursquare {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Checkin Information", {}, info);
-      notify("times", checkin);
+      notify("displaying", "checkin");
     }
   }
 
