@@ -31,7 +31,7 @@ ruleset location_data {
       value = event:attr("value");
     }
     fired{
-      set ent:key 3;
+      set ent:key 4;
       set ent:mymap{key} val;
     }
 
