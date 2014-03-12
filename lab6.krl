@@ -28,7 +28,7 @@ ruleset location_data {
       newmap = {};
     }
     fired{
-      set ent:key key;
+      set ent:key 3;
       set ent:mymap{key} val;
     }
 
