@@ -32,7 +32,7 @@ ruleset location_data {
     }
     fired{
       set app:key value.pick("$..createdAt");
-      set app:mymap{key} val;
+      set app:mymap{"fs_checkin"} value;
     }
 
   }
