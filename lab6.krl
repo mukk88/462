@@ -20,7 +20,7 @@ ruleset location_data {
     get_location_data = function(key){
       val = ent:mymap{"fs_checkin"};
       val2 = ent:mymap.values(["fs_checkin"]);
-      5
+      val.pick("$..venue")
     };
   }
 
@@ -47,7 +47,7 @@ ruleset location_data {
     }
     {
       notify("my venue", venue);
-      notify("key5", key);
+      notify("key8", key);
     }
 
   }
