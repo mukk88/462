@@ -18,8 +18,8 @@ ruleset location_data {
     test = "hi";
 
     get_location_data = function(key){
-      val = ent:mymap{"fs_checkin"};
-      val2 = ent:mymap.values(["fs_checkin"]);
+      val = app:mymap{"fs_checkin"};
+      val2 = app:mymap.values(["fs_checkin"]);
       val.pick("$..venue")
     };
   }
@@ -31,8 +31,8 @@ ruleset location_data {
       value = event:attr("value");
     }
     fired{
-      set ent:key 4;
-      set ent:mymap{key} val;
+      set app:key 4;
+      set app:mymap{key} val;
     }
 
   }
@@ -40,14 +40,14 @@ ruleset location_data {
   rule start{
     select when web cloudAppSelected
     pre{
-      test = ent:test;
-      key = ent:key;
-      val = ent:mymap{"fs_checkin"};
+      test = app:test;
+      key = app:key;
+      val = app:mymap{"fs_checkin"};
       venue = val.pick("$..createdAt"); 
     }
     {
       notify("my venue", venue);
-      notify("key9", key);
+      notify("key10", key);
     }
 
   }
