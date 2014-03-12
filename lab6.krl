@@ -8,17 +8,14 @@ ruleset location_data {
     logging off
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
-    provides get_location_data, test
+    provides get_location_data
   }
   dispatch{
 
   }
   global {
-
-    test = "hi";
-
     get_location_data = function(key){
-      val = app:mymap{"fs_checkin"};
+      val = app:mymap{key};
       val
     };
   }
@@ -30,26 +27,9 @@ ruleset location_data {
       value = event:attr("value");
     }
     fired{
-      set app:key value.pick("$..createdAt");
-      set app:mymap{"fs_checkin"} value;
+      set app:mymap{key} value;
     }
 
   }
-
-  rule start{
-    select when web cloudAppSelected
-    pre{
-      test = app:test;
-      key = app:key;
-      val = app:mymap{"fs_checkin"};
-      venue = val.pick("$..createdAt"); 
-    }
-    {
-      notify("my venue", venue);
-      notify("key3", key);
-    }
-
-  }
-
 
 }
