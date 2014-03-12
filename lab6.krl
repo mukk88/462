@@ -27,7 +27,8 @@ ruleset location_data {
       value = event:attr("value");
     }
     fired{
-      set ent:test key;
+      set ent:test 2;
+      set ent:key key;
       set ent:mymap{key} val;
     }
 
