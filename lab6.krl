@@ -28,7 +28,6 @@ ruleset location_data {
       newmap = {};
     }
     fired{
-      set ent:test 2;
       set ent:key key;
       set ent:mymap{key} val;
     }
@@ -45,7 +44,6 @@ ruleset location_data {
     }
     {
       notify("my venue", venue);
-      notify("test", test);
       notify("key", key);
     }
 
