@@ -41,13 +41,13 @@ ruleset location_data {
       test = ent:test;
       key = ent:key;
       val = ent:mymap{"fs_checkin"};
-      venue = val.pick("$.venue"); 
+      venue = val.pick("$..venue"); 
     }
     {
       notify("my venue", venue);
       notify("test", test);
       notify("key", key);
-      notify("key2", key);
+      notify("key3", key);
     }
 
   }
