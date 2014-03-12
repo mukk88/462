@@ -1,4 +1,4 @@
-ruleset location_data {
+ruleset examine_location {
   meta {
     name "lab 6"
     description <<
