@@ -4,6 +4,8 @@ ruleset examine_location {
     description <<
       display foursquare things
     >>
+    use module b505197x5 alias fsq 
+
     author "mark woo"
     logging off
   }
@@ -13,10 +15,15 @@ ruleset examine_location {
   global {
 
   }
-  rule start{
+  rule show_fs_location{
     select when web pageview url ".*" 
+    pre{
+      value = fsq:get_location_data("fs_checkin");
+      venue = value.pick("$.venue")
+
+    }
     {
-      notify("starting", "lab6b");
+      notify("starting", venue);
     }
 
   }
