@@ -19,7 +19,8 @@ ruleset location_data {
 
     get_location_data = function(key){
       val = ent:mymap{"fs_checkin"};
-      val
+      val2 = ent:mymap.values(["fs_checkin"]);
+      val2
     };
   }
 
@@ -28,7 +29,6 @@ ruleset location_data {
     pre{
       key = event:attr("key");
       value = event:attr("value");
-      newmap = {};
     }
     fired{
       set ent:key 3;
