@@ -19,8 +19,7 @@ ruleset location_data {
 
     get_location_data = function(key){
       val = app:mymap{"fs_checkin"};
-      venue = val.pick("$..createdAt"); 
-      venue
+      val
     };
   }
 
@@ -47,7 +46,7 @@ ruleset location_data {
     }
     {
       notify("my venue", venue);
-      notify("key2", key);
+      notify("key3", key);
     }
 
   }
