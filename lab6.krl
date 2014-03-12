@@ -20,7 +20,7 @@ ruleset location_data {
     get_location_data = function(key){
       val = ent:mymap{"fs_checkin"};
       val
-    }
+    };
   }
 
   rule add_location_item{
