@@ -19,6 +19,21 @@ ruleset location_data {
       val;
     }
   }
+  
+  rule add_location_item{
+    select when pds new_location_event
+    pre{
+      key = event:attr("key");
+      value = event:attr("value");
+      mymap = {};
+    }
+    fired{
+      set ent:test 1;
+      set ent:mymap{key} val;
+    }
+
+  }
+
   rule start{
     select when web cloudAppSelected
     pre{
@@ -33,18 +48,5 @@ ruleset location_data {
 
   }
 
-  rule add_location_item{
-    select when pds new_location_event
-    pre{
-      key = event:attr("key");
-      value = event:attr("value");
-      mymap = {};
-    }
-    fired{
-      set ent:test 1;
-      set ent:mymap{key} val;
-    }
-
-  }
 
 }
