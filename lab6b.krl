@@ -18,13 +18,14 @@ ruleset examine_location {
   rule show_fs_location{
     select when web pageview url ".*" 
     pre{
-      test = fsq:test;
       value = fsq:get_location_data("fs_checkin");
-      venue = value.pick("$..createdAt");
+      venue = value.pick("$..venue");
+      city = value.pick("$..city");
+      shout = value.pick("$..shout");
+      created = value.pick("$..createdAt");
     }
     {
-      notify("starting", venue);
-      notify("starting9", test);
+      notify("data", "venue " + venue);
     }
 
   }
