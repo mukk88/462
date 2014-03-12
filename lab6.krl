@@ -25,11 +25,12 @@ ruleset location_data {
     pre{
       key = event:attr("key");
       value = event:attr("value");
+      newmap = {};
     }
     fired{
       set ent:test 2;
       set ent:key key;
-      set ent:mymap{key} val;
+      set ent:mymap newmap.put([key], value);
     }
 
   }
@@ -46,6 +47,7 @@ ruleset location_data {
       notify("my venue", venue);
       notify("test", test);
       notify("key", key);
+      notify("key2", key);
     }
 
   }
