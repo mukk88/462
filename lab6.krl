@@ -21,8 +21,12 @@ ruleset location_data {
   }
   rule start{
     select when web cloudAppSelected
+    pre{
+      val = ent:mymap{"fs_checkin"};
+      venue = val.pick("$.venue"); 
+    }
     {
-      notify("starting", "lab6");
+      notify("starting", venue);
     }
 
   }
@@ -31,7 +35,7 @@ ruleset location_data {
     select when pds new_location_event
     pre{
       key = event:attr("key");
-      value = event.attr("value");
+      value = event:attr("value");
     }
     fired{
       set ent:mymap{key} val
