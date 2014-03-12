@@ -8,12 +8,15 @@ ruleset location_data {
     logging off
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
-    provides get_location_data
+    provides get_location_data, test
   }
   dispatch{
 
   }
   global {
+
+    test = "hi";
+
     get_location_data = function(key){
       val = ent:mymap{"fs_checkin"};
       val;
