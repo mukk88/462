@@ -20,11 +20,11 @@ ruleset examine_location {
     pre{
       test = fsq:test;
       value = fsq:get_location_data("fs_checkin");
-      venue = value.pick("$..venue");
+      venue = value.pick("$..createdAt");
     }
     {
       notify("starting", venue);
-      notify("starting8", test);
+      notify("starting9", test);
     }
 
   }
