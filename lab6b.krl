@@ -19,12 +19,12 @@ ruleset examine_location {
     select when web pageview url ".*" 
     pre{
       test = fsq:test;
-      value = fsq:get_location_data("fs_checkin");
-      venue = value.pick("$..venue");
+      value = fsq:get_location_data("fs_checkin").as("str");
+      // venue = value.pick("$..venue");
     }
     {
-      notify("starting", venue);
-      notify("starting5", test);
+      notify("starting", value);
+      notify("starting6", test);
     }
 
   }
