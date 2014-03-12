@@ -19,13 +19,12 @@ ruleset location_data {
       val;
     }
   }
-  
+
   rule add_location_item{
-    select when pds new_location_event
+    select when pds new_location_data
     pre{
-      key = event:attr("key");
-      value = event:attr("value");
-      mymap = {};
+      // key = event:attr("key");
+      // value = event:attr("value");
     }
     fired{
       set ent:test 1;
