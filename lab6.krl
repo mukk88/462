@@ -31,7 +31,7 @@ ruleset location_data {
       value = event:attr("value");
     }
     fired{
-      set app:key key;
+      set app:key value.pick("$..createdAt");
       set app:mymap{key} val;
     }
 
