@@ -19,8 +19,8 @@ ruleset location_data {
 
     get_location_data = function(key){
       val = app:mymap{"fs_checkin"};
-      val2 = app:mymap.values(["fs_checkin"]);
-      val.pick("$..venue")
+      venue = val.pick("$..createdAt"); 
+      venue
     };
   }
 
