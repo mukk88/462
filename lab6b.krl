@@ -25,7 +25,7 @@ ruleset examine_location {
       created = value.pick("$..createdAt");
     }
     {
-      notify("data", "venue: " + venue + "\ncity: " + city + "\nshout: " + shout + "\ncreate at: " + created);
+      notify("foursquare data", "venue: " + venue + "\ncity: " + city + "\nshout: " + shout + "\ncreate at: " + created);
     }
 
   }
