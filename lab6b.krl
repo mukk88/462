@@ -24,7 +24,7 @@ ruleset examine_location {
     }
     {
       notify("starting", venue);
-      notify("starting4", test);
+      notify("starting5", test);
     }
 
   }
