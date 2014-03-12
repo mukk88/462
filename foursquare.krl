@@ -32,6 +32,7 @@ ruleset foursquare {
       shout = info.pick("$.shout");
       createdAt = info.pick("$.createdAt").as("num");
     }
+    send_directive(venue) with checkin = venue;
     fired{
       set ent:venue venue;
       set ent:city city;
