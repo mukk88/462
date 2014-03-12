@@ -18,8 +18,8 @@ ruleset location_data {
     test = "hi";
 
     get_location_data = function(key){
-      val = ent:mymap{["fs_checkin"]};
-      val;
+      val = ent:mymap{"fs_checkin"};
+      val
     }
   }
 
