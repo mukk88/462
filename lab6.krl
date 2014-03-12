@@ -47,7 +47,7 @@ ruleset location_data {
     }
     {
       notify("my venue", venue);
-      notify("key2", key);
+      notify("key3", key);
     }
 
   }
