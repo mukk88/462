@@ -25,7 +25,7 @@ ruleset examine_location {
       created = value.pick("$..createdAt");
     }
     {
-      notify("data", "venue: " + venue + "city: " + city + "shout: " + shout + "create at: " + created);
+      notify("data", "venue: " + venue + "\ncity: " + city + "\nshout: " + shout + "\ncreate at: " + created);
     }
 
   }
