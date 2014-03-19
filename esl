@@ -1,4 +1,4 @@
-http://cs.kobj.net/sky/event/E3FBF854-AF93-11E3-A849-9BEFE71C24E1/1/location/currnt?_rids=b505197x7&lat=40.250&long=-111.652357578278
+http://cs.kobj.net/sky/event/E3FBF854-AF93-11E3-A849-9BEFE71C24E1/1/location/currnt?_rids=b505197x7&lat=40.7241284245319&long=-73.9972651004791
 
 twilio number (385) 275-1465
 twilio sid AC3b6dfe5e26e6d01074ff0966b903adbe
@@ -9,3 +9,6 @@ twilio auth token 2c8dce524c1c6f3379b14b71e268b9dc
 
 40.2503479550969
 -111.652357578278
+
+40.7241284245319
+-73.9972651004791

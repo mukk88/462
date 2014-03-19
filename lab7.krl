@@ -46,15 +46,11 @@ ruleset eventnetwork {
     }
     fired{
       set ent:distance d;
-      set ent:fslong fslong;
-      set ent:fslat fslat;
       raise explicit event location_far for b505197x8
       with
         distance = d;
     }else{
       set ent:distance d;
-      set ent:fslong fslong;
-      set ent:fslat fslat;
       raise explicit event location_nearby for b505197x8
       with
         distance = d;
@@ -66,8 +62,6 @@ ruleset eventnetwork {
     pre{
       info = <<
         <p>#{ent:distance} </p>
-        <p>#{ent:fslat} </p>
-        <p>#{ent:fslong} </p>
       >>;
     }
     {
