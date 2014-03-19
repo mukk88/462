@@ -27,8 +27,10 @@ ruleset location_data {
       value = event:attr("value");
     }
     send_directive(key) with location = value;
-    fired{
+    {
       notify('fired', 'new location data');
+    }
+    fired{
       set app:mymap{key} value;
     }
 
