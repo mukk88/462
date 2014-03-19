@@ -36,13 +36,11 @@ ruleset eventnetwork {
       notify("this", "does not work");    
     }
     fired{
-      set ent:distance 'far';
-      set ent:lat lat;
-      set ent:fslat fslat;
+      set ent:distance 'farer';
+      raise explicit event location_far for b505197x8;
     }else{
-      set ent:distance 'near';
-      set ent:lat lat;
-      set ent:fslat fslat;
+      set ent:distance 'nearer';
+      raise explicit event location_near for b505197x8;
     }
   }
 
@@ -50,8 +48,6 @@ ruleset eventnetwork {
     select when web cloudAppSelected
     pre{
       info = <<
-        <p>Lat</p>
-        <p>FourSquare Lat</p>
         <p>#{ent:distance} </p>
       >>;
     }
