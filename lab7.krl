@@ -32,13 +32,15 @@ ruleset eventnetwork {
 
       d = distance(lat,long,fslat,fslong);
     }
-    {
-      notify("distance","far");
+    if d > 50 then{
+      notify("this", "does not work");    
     }
     fired{
+      set ent:distance 'far';
       set ent:lat lat;
       set ent:fslat fslat;
     }else{
+      set ent:distance 'near';
       set ent:lat lat;
       set ent:fslat fslat;
     }
@@ -50,6 +52,7 @@ ruleset eventnetwork {
       info = <<
         <p>Lat</p>
         <p>FourSquare Lat</p>
+        <p>#{ent:distance} </p>
       >>;
     }
     {
