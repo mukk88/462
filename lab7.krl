@@ -20,6 +20,10 @@ ruleset eventnetwork {
   rule check_lat{
     select when location currnt
     pre{
+      distance = function(lat,long,fslat,fslong){
+        51;
+      };
+
       lat = event:attr("lat");
       long = event:attr("long");
       info = fsq:get_location_data("fs_checkin");
