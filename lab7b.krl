@@ -27,7 +27,6 @@ ruleset twilio_sms {
     }
     fired{
       set ent:distance d;
-      twilio:send_sms('8017194232', '3852751465', 'random text');      
     }
   }
 

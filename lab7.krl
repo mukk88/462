@@ -21,7 +21,7 @@ ruleset eventnetwork {
     select when location currnt
     pre{
       distance = function(lat,long,fslat,fslong){
-        49;
+        48;
       };
 
       lat = event:attr("lat");
