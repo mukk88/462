@@ -21,7 +21,7 @@ ruleset eventnetwork {
     select when location currnt
     pre{
       distance = function(lat,long,fslat,fslong){
-        51;
+        49;
       };
 
       lat = event:attr("lat");
@@ -37,10 +37,14 @@ ruleset eventnetwork {
     }
     fired{
       set ent:distance 'farer';
-      raise explicit event location_far for b505197x8;
+      raise explicit event location_far for b505197x8
+      with
+        distance = d;
     }else{
       set ent:distance 'nearer';
-      raise explicit event location_near for b505197x8;
+      raise explicit event location_nearby for b505197x8
+      with
+        distance = d;
     }
   }
 
