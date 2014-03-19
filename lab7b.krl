@@ -22,18 +22,15 @@ ruleset twilio_sms {
   rule send_sms{
     select when explicit location_nearby
     pre{
-      distance = event:attr("distance");
+      d = event:attr("distance");
     }
-    twilio:send_sms('8017194232', '3852751465', "distance " + distance.as("str"));      
+    twilio:send_sms('8017194232', '3852751465', "distance " + d.as("str"));      
   }
 
   rule start{
     select when web cloudAppSelected
-    pre{
-      distance = ent:distance;
-    }
     {
-      notify("starting", distance);
+      notify("starting", "lab 7b");
     }
   }
 }
