@@ -32,7 +32,7 @@ ruleset eventnetwork {
 
       d = distance(lat,long,fslat,fslong);
     }
-    if d > 50 then{
+    {
       notify("distance","far");
     }
     fired{
