@@ -31,7 +31,7 @@ ruleset foursquare {
       city = info.pick("$.venue.location.city");
       shout = info.pick("$.shout");
       createdAt = info.pick("$.createdAt").as("num");
-      lat-long = info.pick("$..lat-long").as("str");
+      latlong = info.pick("$..lat-long").as("str");
 
     }
     send_directive(venue) with checkin = venue;
@@ -40,7 +40,7 @@ ruleset foursquare {
       set ent:city city;
       set ent:shout shout;
       set ent:createdAt createdAt;
-      set ent:lat-long lat-long;
+      set ent:latlong latlong;
 
       raise pds event new_location_data for b505197x5 with 
         key = "fs_checkin" and
@@ -56,7 +56,7 @@ ruleset foursquare {
         <p>City: #{ent:city}</p>
         <p>Shout: #{ent:shout}</p>
         <p>CreatedAt: #{ent:createdAt}</p>
-        <p>Lat-long: #{ent:lat-long}</p>
+        <p>Lat-long: #{ent:latlong}</p>
       >>;
     }
     {
