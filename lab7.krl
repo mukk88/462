@@ -21,7 +21,16 @@ ruleset eventnetwork {
     select when location currnt
     pre{
       distance = function(lat,long,fslat,fslong){
-        46;
+        r90   = math:pi()/2;      
+        rEk   = 6378;
+         
+        rlata = math:deg2rad(lat);
+        rlnga = math:deg2rad(long);
+        rlatb = math:deg2rad(fslat);
+        rlngb = math:deg2rad(fslong);
+         
+        dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
+        dE;
       };
 
       lat = event:attr("lat");

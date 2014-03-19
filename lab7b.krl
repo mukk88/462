@@ -19,17 +19,6 @@ ruleset twilio_sms {
   global {
 
   }
-
-  rule add_location_item{
-    select when explicit location_nearby
-    pre{
-      d = event:attr("distance");
-    }
-    fired{
-      set ent:distance d;
-    }
-  }
-
   rule send_sms{
     select when explicit location_nearby
     pre{
@@ -42,9 +31,6 @@ ruleset twilio_sms {
 
   rule start{
     select when web cloudAppSelected
-    pre{
-      distance = ent:distance;
-    }
     {
       notify("starting", "lab7b");
     }
