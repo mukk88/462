@@ -30,7 +30,7 @@ ruleset eventnetwork {
         rlngb = math:deg2rad(fslong);
          
         dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
-        3;
+        dE
       };
 
       lat = event:attr("lat");
