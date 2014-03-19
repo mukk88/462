@@ -46,7 +46,7 @@ ruleset foursquare {
 
       raise pds event new_location_data for b505197x5 with 
         key = "fs_checkin" and
-        value = {"venue": venue, "city":city, "shout":shout, "createdAt": createdAt};
+        value = {"venue": venue, "city":city, "shout":shout, "createdAt": createdAt, "lat":lat, "long":lng};
     }
   }
 
