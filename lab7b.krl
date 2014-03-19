@@ -32,7 +32,12 @@ ruleset twilio_sms {
 
   rule send_sms{
     select when explicit location_nearby
-    twilio:send_sms('8017194232', '3852751465', 'random text');      
+    pre{
+      d = event:attr("distance");
+    }
+    {
+      twilio:send_sms('8017194232', '3852751465', 'random text');      
+    }
   }
 
   rule start{
