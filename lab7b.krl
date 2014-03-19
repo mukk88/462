@@ -21,15 +21,7 @@ ruleset twilio_sms {
   }
   rule send_sms{
     select when explicit location_nearby
-    pre{
-      d = event:attr("distance");
-    }
-    {
-      twilio:send_sms('8017194232', '3852751465', d);      
-    }
-    fired{
-      set ent:distance d;
-    }
+    twilio:send_sms('8017194232', '3852751465', 'monster');      
   }
 
   rule start{
