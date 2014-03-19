@@ -32,13 +32,8 @@ ruleset eventnetwork {
 
       d = distance(lat,long,fslat,fslong);
     }
-    if(d > 50){
+    if d > 50 then {
       notify('distance', d);
-    }
-    fired{
-      raise explicit event location_nearby for b505197x8
-    }else{
-      raise explicit event location_far for b505197x8  
     }
   }
 
