@@ -27,11 +27,17 @@ ruleset location_data {
       value = event:attr("value");
     }
     send_directive(key) with location = value;
-    {
-      notify('fired', 'new location data');
-    }
     fired{
       set app:mymap{key} value;
+    }
+  }
+
+  rule start{
+    select when web cloudAppSelected
+    pre{
+    }
+    {
+      notify("my venue", "hi");
     }
 
   }
