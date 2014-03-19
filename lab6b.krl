@@ -23,12 +23,16 @@ ruleset examine_location {
       city = value.pick("$..city");
       shout = value.pick("$..shout");
       created = value.pick("$..createdAt");
+      lat = value.pick("$..lat");
+      long = value.pick("$..long");
     }
     {
       notify("venue", venue);
       notify("city", city);
       notify("shout", shout);
       notify("created at", created);
+      notify("lat", lat);
+      notify("long", long);
     }
 
   }
