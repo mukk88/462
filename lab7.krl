@@ -8,6 +8,7 @@ ruleset eventnetwork {
     logging off
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
+    use module b505197x5 alias fsq
   }
   dispatch{
 
@@ -15,23 +16,19 @@ ruleset eventnetwork {
   global {
 
   }
-  rule start{
-    select when web cloudAppSelected
-    {
-      notify("starting", "lab7");
-    }
 
-  }
-
-  rule process_fs_checkin{
+  rule check_lat{
     select when location currnt
     pre{
       lat = event:attr("lat");
-
+      long = event:attr("long");
+      info = fsq:get_location_data("fs_checkin");
+      fslat = info.pick("$..lat");
+      fslong = info.pick("$..long");
     }
-    send_directive(venue) with checkin = venue;
     fired{
       set ent:lat lat;
+      set ent:fslat fslat;
     }
   }
 
@@ -40,6 +37,7 @@ ruleset eventnetwork {
     pre{
       info = <<
         <p>Lat: #{ent:lat}</p>
+        <p>FourSquare Lat: #{ent:fslat}</p>
       >>;
     }
     {
