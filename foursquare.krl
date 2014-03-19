@@ -31,8 +31,8 @@ ruleset foursquare {
       city = info.pick("$.venue.location.city");
       shout = info.pick("$.shout");
       createdAt = info.pick("$.createdAt").as("num");
-      lat= info.pick("$..lat").as("num");
-      lng = info.pick($..lng).as("num");
+      lat = info.pick("$..lat").as("num");
+      lng = info.pick("$..lng").as("num");
 
     }
     send_directive(venue) with checkin = venue;
