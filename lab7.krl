@@ -20,17 +20,15 @@ ruleset eventnetwork {
   rule check_lat{
     select when location currnt
     pre{
-      distance = function(lat, long, fslat, fslong){
-        51
-      };
-
       lat = event:attr("lat");
       long = event:attr("long");
       info = fsq:get_location_data("fs_checkin");
       fslat = info.pick("$..lat");
       fslong = info.pick("$..long");
-
-      d = distance(lat,long,fslat,fslong);
+    }
+    fired{
+      set ent:lat lat;
+      set ent:fslat fslat;
     }
   }
 
