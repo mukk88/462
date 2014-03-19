@@ -24,7 +24,7 @@ ruleset twilio_sms {
     pre{
       d = event:attr("distance");
     }
-    twilio:send_sms('8017194232', '3852751465', "distance " + d.as("str"));
+    twilio:send_sms('8017194232', '3852751465', "distances " + d);
     fired{
       set ent:distance d;
     }      
