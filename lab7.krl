@@ -31,6 +31,7 @@ ruleset eventnetwork {
          
         dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
         dE;
+        2;
       };
 
       lat = event:attr("lat");
