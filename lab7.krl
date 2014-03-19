@@ -29,6 +29,8 @@ ruleset eventnetwork {
       info = fsq:get_location_data("fs_checkin");
       fslat = info.pick("$..lat");
       fslong = info.pick("$..long");
+
+      d = distance(lat,long,fslat,fslong);
     }
     fired{
       set ent:lat lat;
@@ -47,7 +49,7 @@ ruleset eventnetwork {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Checkin Information", {}, info);
-      notify("displaying", "new checkin");
+      notify("displaying", "new checkin1");
     }
   }
 
