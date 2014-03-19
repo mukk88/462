@@ -32,7 +32,13 @@ ruleset eventnetwork {
 
       d = distance(lat,long,fslat,fslong);
     }
+    if d > 50 then{
+      notify("distance","far");
+    }
     fired{
+      set ent:lat lat;
+      set ent:fslat fslat;
+    }else{
       set ent:lat lat;
       set ent:fslat fslat;
     }
@@ -42,8 +48,8 @@ ruleset eventnetwork {
     select when web cloudAppSelected
     pre{
       info = <<
-        <p>Lat: #{ent:lat}</p>
-        <p>FourSquare Lat: #{ent:fslat}</p>
+        <p>Lat</p>
+        <p>FourSquare Lat</p>
       >>;
     }
     {
