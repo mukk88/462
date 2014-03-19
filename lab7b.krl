@@ -27,12 +27,18 @@ ruleset twilio_sms {
     {
       twilio:send_sms('8017194232', '3852751465', d);      
     }
+    fired{
+      set ent:distance d;
+    }
   }
 
   rule start{
     select when web cloudAppSelected
+    pre{
+      distance = ent:distance;
+    }
     {
-      notify("starting", "lab7b");
+      notify("starting", distance);
     }
   }
 }

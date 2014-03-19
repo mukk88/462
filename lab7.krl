@@ -50,7 +50,7 @@ ruleset eventnetwork {
       with
         distance = d;
     }else{
-      set ent:distance d;
+      set ent:distance 'supernear';
       raise explicit event location_nearby for b505197x8
       with
         distance = d;
