@@ -45,12 +45,12 @@ ruleset eventnetwork {
       notify("this", "does not work");    
     }
     fired{
-      set ent:distance 'farer';
+      set ent:distance d;
       raise explicit event location_far for b505197x8
       with
         distance = d;
     }else{
-      set ent:distance 'nearer';
+      set ent:distance d;
       raise explicit event location_nearby for b505197x8
       with
         distance = d;
