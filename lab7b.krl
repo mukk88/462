@@ -37,7 +37,7 @@ ruleset twilio_sms {
       distance = ent:distance;
     }
     {
-      notify("part", distance);
+      notify("party", distance);
     }
   }
 }
