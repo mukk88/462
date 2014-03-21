@@ -62,8 +62,8 @@ ruleset foursquare {
     select when foursquare checkin
       foreach subscription_map setting (pico)
         event:send(pico,"location","notification")
-            with attrs = {"venue" : ent:venue,
-                          "city": ent:city,
+            with attrs = {"venue" : "mbs",
+                          "city": "singapore",
                           };
         }
   }
