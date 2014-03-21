@@ -15,10 +15,10 @@ ruleset foursquare {
   global {
     subscribers = 
      [{"name":"plusone",
-       "cid":"5F93D4AC-B122-11E3-AC23-000C647EDFE5",
+       "cid":"5F93D4AC-B122-11E3-AC23-000C647EDFE5"
       },
       {"name":"plustwo",
-       "cid":"8B339A0C-B122-11E3-86D1-3C9EE71C24E1",
+       "cid":"8B339A0C-B122-11E3-86D1-3C9EE71C24E1"
       }
      ];
   }
@@ -63,9 +63,8 @@ ruleset foursquare {
       foreach subscribers setting (pico)
         event:send(pico,"location","notification")
             with attrs = {"venue" : "mbs",
-                          "city": "singapore",
+                          "city": "singapore"
                           };
-        }
         always{
           set ent:test "test";
         }
