@@ -13,7 +13,7 @@ ruleset foursquare {
 
   }
   global {
-    subscription_map = 
+    subscribers = 
      [{"name":"plusone",
        "cid":"5F93D4AC-B122-11E3-AC23-000C647EDFE5",
       },
@@ -60,11 +60,14 @@ ruleset foursquare {
 
   rule dispatch {
     select when foursquare checkin
-      foreach subscription_map setting (pico)
+      foreach subscribers setting (pico)
         event:send(pico,"location","notification")
             with attrs = {"venue" : "mbs",
                           "city": "singapore",
                           };
+        }
+        always{
+          set ent:test "test";
         }
   }
 
@@ -78,6 +81,7 @@ ruleset foursquare {
         <p>CreatedAt: #{ent:createdAt}</p>
         <p>Lat: #{ent:lat}</p>
         <p>Long: #{ent:lng}</p>
+        <p>Test: #{ent:test}</p>
       >>;
     }
     {
