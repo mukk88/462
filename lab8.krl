@@ -45,7 +45,7 @@ ruleset location_data {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Checkin Information", {}, info);
-      notify("lab8", "start");
+      notify("lab8", "starting");
     }
 
   }
