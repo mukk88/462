@@ -15,10 +15,10 @@ ruleset foursquare {
   global {
     subscription_map = 
      [{"name":"plusone",
-       "eci":"5F93D4AC-B122-11E3-AC23-000C647EDFE5",
+       "cid":"5F93D4AC-B122-11E3-AC23-000C647EDFE5",
       },
       {"name":"plustwo",
-       "eci":"8B339A0C-B122-11E3-86D1-3C9EE71C24E1",
+       "cid":"8B339A0C-B122-11E3-86D1-3C9EE71C24E1",
       }
      ];
   }
