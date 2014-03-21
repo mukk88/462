@@ -63,11 +63,10 @@ ruleset foursquare {
       foreach subscribers setting (pico)
         event:send(pico,"location","notification")
             with attrs = {"venue" : ent:venue,
-                          "city": ent:city
+                          "city": ent:city,
+                          "lat": ent:lat,
+                          "long": ent:lng
                           };
-        always{
-          set ent:test "test";
-        }
   }
 
   rule display_checkin{
@@ -80,7 +79,6 @@ ruleset foursquare {
         <p>CreatedAt: #{ent:createdAt}</p>
         <p>Lat: #{ent:lat}</p>
         <p>Long: #{ent:lng}</p>
-        <p>Test: #{ent:test}</p>
       >>;
     }
     {

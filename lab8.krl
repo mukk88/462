@@ -21,10 +21,14 @@ ruleset location_data {
     pre{
       venue = event:attr("venue");
       city = event:attr("city");
+      lat = event:attr("lat");
+      long = event:attr("lng");
     }
     fired{
       set ent:venue venue;
       set ent:city city;
+      set ent:lat lat;
+      set ent:long long;
     }
   }
 
@@ -34,6 +38,8 @@ ruleset location_data {
       info = <<
         <p> Venue: #{ent:venue} </p>
         <p> City: #{ent:city} </p>
+        <p> Lat: #{ent:lat} </p>
+        <p> Long: #{ent:long} </p>
       >>;
     }
     {
