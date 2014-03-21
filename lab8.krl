@@ -45,7 +45,7 @@ ruleset location_data {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Checkin Information", {}, info);
-      notify("lab8", "starting");
+      notify("lab8", "starting git hub is lame");
     }
 
   }
