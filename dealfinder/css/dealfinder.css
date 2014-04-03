@@ -1,0 +1,99 @@
+body{
+	background-color: ghostwhite;
+	font-family: 'Quicksand' sans-serif;
+}
+
+.container{
+	width:275px;
+	height:450px;
+	margin-top: 50px;
+	border: 3px solid black;
+	/*padding: 20px;*/
+	margin-left: auto;
+	margin-right: auto;
+	right:0;
+	left:0;
+
+	position: relative;
+	background-color: white;
+}
+
+.container #buttonholder{
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	right:25px;
+	margin-bottom: 20px;
+}
+
+.container button{
+	border: none;
+	padding: 4px 11px;
+	font-size: 15px;
+	/*font-weight: bold;*/
+	border:1px solid black;
+	color:beige;
+	background-color: midnightblue;
+}
+
+.container #top p{
+	font-family: 'Loved by the King', cursive;
+	font-size: 30px;
+	margin-top: 5px;
+	color:beige;
+}
+
+.container #top{
+	top:0;
+	position: absolute;
+	width:100%;
+	height:60px;
+	background-color: midnightblue;
+	text-align: center;
+	border-bottom: 2px solid black
+}
+
+.container #middle{
+	top:60px;
+	position: absolute;
+	padding: 10px;
+	padding-top: 20px;
+}
+
+input{
+	padding: 3px;
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+
+input[type=number]{
+	width:70px;
+	margin-left: 5px
+}
+
+input[type=text]{
+	width: 255px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.space{
+	margin-left: 17px;
+}
+
+.container img{
+	height:64px;
+	width: 64px;
+	margin-left: 12px;
+	background-color: lightgrey;
+	/*border: 1px solid;*/
+}
+
+.container p{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

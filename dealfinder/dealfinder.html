@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>deal finder</title>
+	<link rel="stylesheet" type="text/css" href="css/dealfinder.css">
+	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Loved+by+the+King' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('img').click(function(){
+				if($(this).css('border')[0] == '0'){
+					$(this).css('border','2px solid midnightblue');	
+					$(this).height('60');	
+					$(this).width('60');
+				}else{
+					$(this).css('border','0px solid');		
+					$(this).height('64');	
+					$(this).width('64');
+				}
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div id ="top">
+			<p>Quickpick</p>
+		</div>
+		<div id = "middle">
+			I am looking for a..
+			<br>
+			<input type="text" placeholder="bicycle">
+			<br>
+			It is going to cost between
+			<br>
+			<span class="space">$</span><input type="number" placeholder ="0"> and $<input type="number" placeholder="100">
+			<p style="margin-bottom:10px;">Help me look through</p>
+			<img src="images/ksl.png">
+			<img src="http://a3.mzstatic.com/us/r30/Purple6/v4/42/5e/fa/425efa51-2b0c-f018-b882-3eeb253e3d4a/mzl.yamvwrka.png">
+			<img src="https://ssl.gstatic.com/android/market/com.apppeople.craigslistassist/hi-256-0-59e2ec73db7c2efc958aaf61251be5a9c48ecba5">
+			<p>Let me know at</p>
+			<input type="text" placeholder="8011234567">
+		</div>
+		<div id = "buttonholder">
+			<button>Find</button>
+		</div>
+	</div>	
+</body>
+</html>
