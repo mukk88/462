@@ -22,7 +22,7 @@ ruleset location_data {
       venue = event:attr("venue");
       city = event:attr("city");
       lat = event:attr("lat");
-      lng = event:attr("lng");
+      lng = event:attr("long");
     }
     fired{
       set ent:venue venue;
